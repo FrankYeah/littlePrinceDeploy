@@ -1,0 +1,1675 @@
+<template>
+  <div class="index">
+
+    <!-- --------------------------------------- -->
+    <!-- box content -->
+    <div class="index-prince-outer">
+      <img class="index-prince-bt-title" v-lazy="require('@/assets/img/desktop/bt-title.png')" alt="title">
+      <img class="index-prince-bt-sheep" v-lazy="require('@/assets/img/desktop/bt-sheep.png')" alt="sheep">
+      <img class="index-prince-bt-star1" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
+      <img class="index-prince-bt-star2" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
+      <img class="index-prince-bt-star3" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
+      <img class="index-prince-bt-star4" v-lazy="require('@/assets/img/desktop/star2.png')" alt="star">
+      <img class="index-prince-bt-flower" v-lazy="require('@/assets/img/desktop/bt-flower.png')" alt="flower">
+      <img class="index-prince-bt-star5" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
+      <img class="index-prince-bt-board" v-lazy="require('@/assets/img/desktop/bt-board.png')" alt="board">
+      <img class="index-prince-bt-elephant" v-lazy="require('@/assets/img/desktop/bt-elephant.png')" alt="elephant">
+      <img class="index-prince-bt-star6" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
+
+      <!-- 小王子的藝想世界 -->
+      <boxContent class="index-prince" v-lazy:background-image="require('@/assets/img/index/prince-star.png')">
+        <div class="index-prince-bg"></div>
+        <img class="index-prince-star" v-lazy="require('@/assets/img/common/star.png')" alt="star">
+        <div class="index-prince-man-box">
+          <img class="index-prince-man" v-lazy="require('@/assets/img/index/prince-blue.png')" alt="star">
+        </div>
+
+        <img class="index-prince-title" v-lazy="require('@/assets/img/index/title-anniversary.png')" alt="anniversary">
+        <div>
+          <img class="index-prince-exhi" v-lazy="require('@/assets/img/index/prince-exhibition.png')" alt="exhibition">
+        </div>
+
+        <div class="index-prince-box">
+          <img @click="scrollEvent('ticketInfo')" class="index-prince-intro1" v-lazy="require('@/assets/img/index/star-ticket.png')" alt="ticket">
+          <router-link :to="'/art'">
+            <img class="index-prince-intro2" v-lazy="require('@/assets/img/index/star-art.png')" alt="art">
+          </router-link>
+        </div>
+        <img @click="scrollEvent('exIntro')" class="index-prince-intro3" v-lazy="require('@/assets/img/index/star-exhibition.png')" alt="exhibition">
+      </boxContent>
+
+      <!-- 最新消息 -->
+      <boxContent class="index-news">
+        <div class="index-news-bg" v-lazy:background-image="require('@/assets/img/index/news-papper.png')">
+          <div class="index-news-head-box">
+            <img class="index-news-head-hat" v-lazy="require('@/assets/img/index/news-hat.png')" alt="hat">
+            <img class="index-news-head-title" v-lazy="require('@/assets/img/index/title-news.png')" alt="hat">
+          </div>
+          <div class="index-news-text">早鳥優惠價280元限時優惠（原價350元/張），即日起至10/31止，全檔期唯一最低單價票種，暢遊5大劇場情境式展區，完整走入小王子的世界！</div>
+        </div>
+      </boxContent>
+
+      <!-- 故事翻頁 -->
+      <boxContent class="index-book">
+        <img class="index-book-bg" v-lazy="require('@/assets/img/index/book-bg.png')" alt="bg">
+        <img class="index-book-title" v-lazy="require('@/assets/img/index/title-prince.png')" alt="prince">
+        <!-- 缺文字 img -->
+
+        <div class="index-book-rotate" v-lazy:background-image="require('@/assets/img/index/book-filp.png')">
+          <img @click="selectMark(1)" v-if="!isSelectMark.one" class="index-book-mark index-book-mark1" v-lazy="require('@/assets/img/index/bookmark1.png')" alt="bookmark">
+          <img v-else class="index-book-mark index-book-mark1" v-lazy="require('@/assets/img/index/bookmark1-select.png')" alt="bookmark">
+          <img @click="selectMark(2)" v-if="!isSelectMark.two" class="index-book-mark index-book-mark2" v-lazy="require('@/assets/img/index/bookmark2.png')" alt="bookmark">
+          <img v-else class="index-book-mark index-book-mark2" v-lazy="require('@/assets/img/index/bookmark2-select.png')" alt="bookmark">
+          <img @click="selectMark(3)" v-if="!isSelectMark.three" class="index-book-mark index-book-mark3" v-lazy="require('@/assets/img/index/bookmark3.png')" alt="bookmark">
+          <img v-else class="index-book-mark index-book-mark3" v-lazy="require('@/assets/img/index/bookmark3-select.png')" alt="bookmark">
+          <img @click="selectMark(4)" v-if="!isSelectMark.four" class="index-book-mark index-book-mark4" v-lazy="require('@/assets/img/index/bookmark4.png')" alt="bookmark">
+          <img v-else class="index-book-mark index-book-mark4" v-lazy="require('@/assets/img/index/bookmark4-select.png')" alt="bookmark">
+          <img @click="selectMark(5)" v-if="!isSelectMark.five" class="index-book-mark index-book-mark5" v-lazy="require('@/assets/img/index/bookmark5.png')" alt="bookmark">
+          <img v-else class="index-book-mark index-book-mark5" v-lazy="require('@/assets/img/index/bookmark5-select.png')" alt="bookmark">
+          <img @click="selectMark(6)" v-if="!isSelectMark.six" class="index-book-mark index-book-mark6" v-lazy="require('@/assets/img/index/bookmark6.png')" alt="bookmark">
+          <img v-else class="index-book-mark index-book-mark6" v-lazy="require('@/assets/img/index/bookmark6-select.png')" alt="bookmark">
+          <!-- swiper -->
+          <!-- 1.輪播特效
+          2.輪播文字、圖片、上方文字更新
+          3.書籤切換頁碼 -->
+          <swiper class="swiper index-book-swiper" :options="swiperOptionBook" ref="mySwiperBook">
+            <swiper-slide>
+              <div class="index-book-slide-box">
+                <img class="index-book-img" v-lazy="require('@/assets/img/index/title-prince.png')"  alt="prince">
+                <div class="index-book-head">The Little Prince</div>
+                <div class="index-book-text">六歲的安東尼畫了「一號作品」：蟒蛇吞食了一頭大象。大人們稱，那頂帽子畫得真好！於是「二號作品」的誕生，他畫了蟒蛇肚子裡的內視圖，但大人們看不懂。放棄畫家夢的安東尼成為飛行員，一日在沙哈拉沙漠遇到一場意外，遇見了個擁有稻黃色金髮的謎樣男孩，小王子。"</div>
+              </div>
+            </swiper-slide>
+          </swiper>
+              
+        </div>
+
+      </boxContent>
+
+      <!-- 藝術家介紹 -->
+      <boxContent class="index-art">
+        <div class="index-art-head-box">
+          <img class="index-art-head" v-lazy="require('@/assets/img/index/title-artist.png')" alt="artist">
+          <img class="index-art-intro" v-lazy="require('@/assets/img/index/art-intro.png')" alt="intro">
+        </div>
+        <div class="index-art-text">邀集國內外藝術家以全新視角詮釋，從視覺藝術到驚喜引導的故事人聲、量身定做的展場原聲音樂環繞，透過奇幻氛圍的劇場空間與沈浸式互動投影聯手，和小王子一起來趟暖心療癒的星球旅行吧！</div>
+        <div class="index-art-rotate">
+          <!-- 等上面完成，一次做輪播 -->
+          <swiper class="swiper index-art-swiper" :options="swiperOptionArt" ref="mySwiperArt">
+            <swiper-slide v-for="(artist, index) in artists"
+              :key="`${index}art`"
+              class="index-art-slide"
+            >
+              <img class="index-art-artist" v-lazy="require(`@/assets/img/index/artist${artist.art}.png`)" alt="artist1">
+            </swiper-slide>
+          </swiper>
+        </div>
+        <div class="index-art-line"></div>
+        <img ref="exIntro" class="index-art-img" v-lazy="require('@/assets/img/index/intro-img.png')" alt="intro">
+      </boxContent>
+
+
+    </div>
+    
+
+
+    <!-- --------------------------------------- -->
+    <div class="index-exhi-outer">
+
+      <img class="index-exhi-skin-moon" v-lazy="require('@/assets/img/desktop/skin-moon.png')" alt="moon">
+      <img class="index-exhi-skin-star" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
+      <img class="index-exhi-skin-sun" v-lazy="require('@/assets/img/desktop/skin-sun.png')" alt="sun">
+      
+      <boxContent class="index-exhi">
+        <div class="index-exhi-text">邀請喜愛小王子的鐵粉以及新朋友們一同家人全新展覽體驗；不再只是「看」展覽，而是跟著小王子穿越75個年頭，回到相遇的原點，一起展開星球旅行！請戴上登機手環與準備好一台互動的智慧型手機，即將於12.29～2022.4.6，在台北華山1914文創園區西一西二館啟程出發！</div>
+      </boxContent>
+    
+    <!-- 章節 -->
+      <boxContent class="index-chapter">
+        <!-- data driven -->
+        <div v-for="(chapter, index) in chapterContent"
+          :key="index"
+        >
+          <div class="index-chapter-head-box">
+            <!-- 左 -->
+            <div class="index-chapter-head-left">
+              <img class="index-chapter-chapter" v-lazy="require(`@/assets/img/index/chapter${index+1}.png`)" alt="intro">
+              <div>
+                <div class="index-chapter-title">{{ chapter.title }}</div>
+                <div class="index-chapter-tag">{{ chapter.tag }}</div>
+              </div>
+            </div>
+            <!-- 右 -->
+            <img @click="isShowChapter[chapter.num] = !isShowChapter[chapter.num]"
+              :class="['index-chapter-arrow', {'index-chapter-arrow-reverse': isShowChapter[chapter.num]}]"
+              v-lazy="require('@/assets/img/index/swiper-icon.png')" alt="intro"
+            >
+          </div>
+          <div v-show="isShowChapter[chapter.num]" class="index-chapter-box">
+            <img class="index-chapter-img" v-lazy="require('@/assets/img/index/intro-img.png')" alt="intro">
+            <div v-html="chapter.text" class="index-chapter-text"></div>
+          </div>
+          <div class="index-chapter-line"></div>
+
+        </div>
+
+        <div class="index-chapter-head-box">
+          <div class="index-chapter-head-left">
+            <img class="index-chapter-chapter" v-lazy="require('@/assets/img/index/chapter-gallery.png')" alt="intro">
+              <div class="index-chapter-title">展場實景</div>
+          </div>
+        </div>
+        <div class="index-chapter-gallery">
+
+          <swiper class="swiper index-gallery-swiper" :options="swiperOptionGallery" ref="mySwiperGallery">
+            <swiper-slide v-for="(plaza, index) in plazas"
+              :key="`${index}plaza`"
+            >
+              <img class="index-chapter-gallery-img" v-lazy="require(`@/assets/img/index/plaza${plaza.img}.jpg`)" alt="intro">
+            </swiper-slide>
+          </swiper>
+          
+        </div>
+
+        <div class="index-chapter-snack-box">
+          <img class="index-chapter-snack" v-lazy="require('@/assets/img/index/ticket-snack.png')" alt="snack">
+        </div>
+
+      </boxContent>
+
+    </div>
+
+   
+   <!-- --------------------------------------- -->
+    <div ref="ticketInfo" class="index-ticket-outer">
+      <img class="index-ticket-white-sun" v-lazy="require('@/assets/img/desktop/white-sun.png')" alt="sun">
+      <img class="index-ticket-white-fox" v-lazy="require('@/assets/img/desktop/white-fox.png')" alt="fox">
+      <img class="index-ticket-white-prince" v-lazy="require('@/assets/img/desktop/white-prince.png')" alt="prince">
+      <img class="index-ticket-white-airplane" v-lazy="require('@/assets/img/desktop/white-airplane.png')" alt="airplane">
+      <img class="index-ticket-white-star" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
+      <img class="index-ticket-white-flower" v-lazy="require('@/assets/img/desktop/white-flower.png')" alt="flower">
+
+
+
+    <!-- 購票資訊 -->
+      <boxContent class="index-ticket">
+        <img class="index-ticket-title" v-lazy="require('@/assets/img/index/title-buy.png')" alt="info">
+        <img class="index-ticket-airplane" v-lazy="require('@/assets/img/index/ticket-airplane.png')" alt="airplane">
+        <div class="index-ticket-sub">
+          購票須知：<br>
+          為能達成控管入場人流與最佳觀展品質，將於「開展前一個月」開訪提供參觀時段預約連結。於入場時配合防疫措施，完成實聯制並進行消毒雙手及測量體溫（現場將備有消毒酒精），並且記得參觀時應全程佩戴口罩喔！
+        </div>
+        <img class="index-ticket-land" v-lazy="require('@/assets/img/index/ticket-land.png')" alt="airplane">
+
+        <div class="index-ticket-box">
+          <div class="index-ticket-head-box">
+            <img class="index-ticket-head-fox" v-lazy="require('@/assets/img/index/ticket-fox.png')" alt="airplane">
+            <div class="index-ticket-head">基本票</div>
+          </div>
+          <div class="index-ticket-line"></div>
+
+          <!-- 票種 -->
+          <div v-for="(ticket, index) in ticketInfo"
+            :key="index"
+            class="index-ticket-row-box"
+          >
+            <div class="index-ticket-row">
+              <div class="index-ticket-type" v-lazy:background-image="require('@/assets/img/index/ticket-post.png')">{{ ticket.type }}</div>
+              <div class="index-ticket-desc">
+                <div v-if="ticket.money" class="index-ticket-desc-name">
+                  <span class="index-ticket-desc-name-big">{{ ticket.money }}</span>
+                  {{ ticket.paper }}
+                </div>
+                <div v-html="ticket.text" class="index-ticket-desc-text"></div>
+              </div>
+            </div>
+            <div class="index-ticket-line"></div>
+          </div>
+
+          <div class="index-ticket-hint">＼ 你也可以在以下平台購買 ／</div>
+          <div class="index-ticket-place-left">
+            <a href="https://weiyunchangart.kktix.cc/events/b42fb9f3" target="_blank">
+              <img class="index-ticket-place" v-lazy="require('@/assets/img/index/outsell-kktix.png')" alt="kktix">
+            </a>
+            <a href="https://www.kkday.com/zh-tw/product/123126" target="_blank">
+              <img class="index-ticket-place" v-lazy="require('@/assets/img/index/outsell-kkday.png')" alt="kkday">
+            </a>
+          </div>
+          <div class="index-ticket-place-right">
+            <a href="https://tickets.books.com.tw/progshow/08010201555203" target="_blank">
+              <img class="index-ticket-place" v-lazy="require('@/assets/img/index/outsell-book.png')" alt="book">
+            </a>
+            <a href="" target="_blank">
+              <img class="index-ticket-place" v-lazy="require('@/assets/img/index/outsell-pchome.png')" alt="pchome">
+            </a>
+          </div>
+          
+        </div>
+      </boxContent>
+    </div>
+    
+    
+    <!-- --------------------------------------- -->
+    <div class="index-store-outer">
+      <img class="index-store-bb-star1" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
+      <img class="index-store-bb-star2" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
+      <img class="index-store-bb-elephant" v-lazy="require('@/assets/img/desktop/bb-elephant.png')" alt="elephant">
+      <img class="index-store-bb-tree1" v-lazy="require('@/assets/img/desktop/bb-tree1.png')" alt="tree">
+      <img class="index-store-bb-moon" v-lazy="require('@/assets/img/desktop/bb-moon.png')" alt="moon">
+      <img class="index-store-bb-tree2" v-lazy="require('@/assets/img/desktop/bb-tree2.png')" alt="tree">
+
+
+      <!-- 小王子商店 -->
+      <boxContent class="index-store">
+        <img class="index-store-tree" v-lazy="require('@/assets/img/index/store-tree.png')" alt="tree">
+        <img class="index-store-title" v-lazy="require('@/assets/img/index/title-store.png')" alt="store">
+
+        <div class="index-store-tab-box">
+          <div class="index-store-tab">tab01</div>
+          <div class="index-store-tab">tab02</div>
+          <div class="index-store-tab">tab03</div>
+          <div class="index-store-tab">tab04</div>
+        </div>
+
+        <!-- 輪播 -->
+
+        <!--  -->
+
+        <div class="index-store-go-box">
+          <div class="index-store-go" v-lazy:background-image="require('@/assets/img/index/outsell-store.png')">前往商店</div>
+        </div>
+        
+        <img class="index-store-land" v-lazy="require('@/assets/img/index/sponsor-img.png')" alt="sponsor">
+
+
+        <!-- 贊助單位 -->
+
+        <div class="index-sponsor">
+          <div class="index-sponsor-title">贊助單位</div>
+
+          <div class="index-sponsor-rotate">
+            <!-- 輪播 -->輪播
+          </div>
+        </div>
+      
+
+        <!-- footer -->
+        <div class="index-footer">
+          <div class="index-footer-box">
+            <div>
+              <div class="index-footer-text">主辦單位｜為美學有限公司</div>
+              <div class="index-footer-text">協同策展｜群眾自造股份有限公司</div>
+              <div class="index-footer-text">授權單位｜薩摩亞商羚邦亞洲有限公司</div>
+            </div>
+            <div>
+              <div class="index-footer-text">行銷團隊｜大宇宙情報股份有限公司</div>
+              <div class="index-footer-text">行銷顧問｜貝殼放大股份有限公司</div>
+              <div class="index-footer-text">商品開發｜可蘿國際股份有限公司</div>
+            </div>
+
+          </div>
+
+          <div class="index-footer-social-box">
+            <a href="https://www.facebook.com/LePetitPrince.75tw" target="facebook">
+              <img class="index-footer-social" v-lazy="require('@/assets/img/index/social-fb.png')" alt="sponsor">
+            </a>
+            <a href="https://www.instagram.com/le_petit_prince75th_tw" target="_blank">
+              <img class="index-footer-social" v-lazy="require('@/assets/img/index/social-ig.png')" alt="instagram">
+            </a>
+            <a href="mailto:service@weiyunchang.com" target="_blank">
+              <img class="index-footer-social" v-lazy="require('@/assets/img/index/social-email.png')" alt="mail">
+            </a>
+            
+            
+            
+          </div>
+
+          <div class="index-footer-copyright">copyright</div>
+
+
+        </div>
+
+
+      </boxContent>
+
+    </div>
+
+    <!-- sidebar -->
+
+    <div class="index-side">
+      <div class="index-side-box" v-lazy:background-image="require('@/assets/img/index/fix-ticket.png')">
+        <div class="index-side-text">
+          {{ runtime }}<br>
+          早鳥特惠<span style="font-style: italic;">!</span>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+</template>
+
+<script>
+
+import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+import VanillaTilt from 'vanilla-tilt';
+
+export default {
+  head: {
+    title: '小王子的藝想世界 75 周年特展',
+  },
+  layout: 'default',
+  components: {
+    Swiper,
+    SwiperSlide,
+    boxContent: require('~/components/common/box-content.vue').default,
+  },
+  props: {
+
+  },
+  data () {
+    return {
+      runtime: '',
+      swiperOptionBook: {
+        slidesPerView: 1,
+        spaceBetween: 0,
+        lazy: true,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true
+        }
+      },
+      swiperOptionArt: {
+        slidesPerView: 1,
+        spaceBetween: -168,
+        lazy: true,
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true
+        }
+      },
+      swiperOptionGallery: {
+        slidesPerView: 2,
+        spaceBetween: 0,
+        lazy: true,
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true
+        }
+      },
+      plazas: [
+        { img: 1 },
+        { img: 2 },
+        { img: 3 }
+      ],
+      isSelectMark: {
+        one: false,
+        two: false,
+        three: false,
+        four: false,
+        five: false,
+        six: false,
+      },
+      artists:[
+        { art: 1 },
+        { art: 2 },
+        { art: 3 },
+        { art: 4 }
+      ],
+      isShowChapter: {
+        one: true,
+        two: false,
+        three: false,
+        four: false,
+        five: false,
+      },
+      chapterContent: [
+        {
+          num: 'one',
+          title: 'Start｜日出/遇見小王子',
+          tag: '＃相遇',
+          img: '',
+          text: `
+            戴上飛行手環、開啟機艙門，踏入安東尼與小王子初次相見的沙漠中。<br>
+            劇場式的場景中，滿佈經典小王子手稿、書籍封面、歷年跨界合作創作，一頁頁散落日記般的手稿，逐步引導走入小王子的宇宙。
+          `
+        },
+        {
+          num: 'two',
+          title: 'B-612｜旅程的起點',
+          tag: '＃選擇',
+          img: '',
+          text: `
+            一段專屬於你的旅程起點從這裡開啟。<br>
+            小王子的星球B-612上，有兩座火山和1朵美麗的玫瑰花。你想前往哪個星球呢？讓玫瑰為你指引方向！
+          `
+        },
+        {
+          num: 'three',
+          title: 'Six Stars｜六個星球的探索',
+          tag: '＃探索',
+          img: '',
+          text: `
+            探訪小王子的星球B-612後，跟隨小王子的腳步拜訪六顆不同個性的星球，結合視覺、聽覺與體感的聲光效果，在藝術家的創作詮釋寓意之下，展開一趟奇幻而深刻的星際之旅。
+          `
+        },
+        {
+          num: 'four',
+          title: 'Salut｜再見/落日與星空',
+          tag: '＃道別',
+          img: '',
+          text: `
+            降落地球，相遇——第44次日落，學會說再見<br>
+            透過地理學家推薦，小王子決定來拜訪地球。這個與B-612大小相差甚多，且生機勃勃的星球，展開一連串相遇，得到成長與體悟，最後，學會說再見⋯⋯。
+          `
+        },
+        {
+          num: 'five',
+          title: 'Rose garden｜玫瑰花園',
+          tag: '＃追尋',
+          img: '',
+          text: `
+            小王子決定回到他的星球，留在地球上的我們是不是也找到自己的那一顆星了呢？<br>
+            小王子在地球上發現的「玫瑰花園」作為商品區，特別企劃小王子75周年限定與精選授權商品，並開放非購票觀眾於防疫規範下自由入場。
+          `
+        },
+      ],
+      ticketInfo: [
+        {
+          type: '全票',
+          paper: '元/張',
+          money: '280',
+          text: `適用於一般身份成人。`,
+        },
+        {
+          type: '親子票',
+          paper: '元/2張',
+          money: '500',
+          text: `
+            ● 1張全票＋1張國小以下兒童票<br>
+            1. 適用於一位成人、陪伴一位4歲（含）～12歲（含）以下國小生。<br>
+            2. 使用親子票時，需同時入場，並出示有效身份證明文件。*提醒：現場未帶證件需補足「學生票」差額（即全票＋學生票=670元）
+          `,
+        },
+        {
+          type: '學生票',
+          paper: '元/張',
+          money: '320',
+          text: `
+            ● 現場販售ONLY
+            1. 年齡6歲（含）以上小學～大專院校以下學生。<br>
+            2. 滿6歲尚未註冊入學之兒童，可出示身份證明文件，限購一張。<br>
+            3. 持本國籍大專以下有效學生證件之在學學生，以當學期註冊章為憑(網路查詢學籍證明恕不適用)。<br>
+            4. 兌換票券時，需出示身份證明文件、本人學生證正本以備查驗，每證限購一張。<br>
+            5. 碩博士、社區大學、空中大學及在職進修學生不適用。
+          `,
+        },
+        {
+          type: '特惠票',
+          paper: '元/張',
+          money: '175',
+          text: `
+            ● 現場販售ONLY
+            1. 65歲（含）以上年長者，須出示相關證明文件，限購一張。<br>
+            2. 4歲（含）～6歲未滿兒童，須出示相關證明文件及成人陪同，限購一張。<br>
+            3. 持本國籍身心障礙人士本人證明文件正本，必要陪同者（每證限一位）亦可購入特惠票，需同時入場。
+          `,
+        },
+        {
+          type: '免票',
+          paper: '元/張',
+          money: '',
+          text: `
+            1. 未滿4歲嬰幼兒免費入場，須一位成人（年滿20歲以上）持票陪同入場。<br>
+            2. 未帶證件，但身高超過115公分孩童仍須購買學生票入場。
+          `,
+        },
+        {
+          type: '團體票',
+          paper: '元/張',
+          money: '300',
+          text: `
+            1. 單次購買限定為40張（含）以上團體購票<br>
+            2. 需同時入場，並提供平日參觀時段預約
+          `,
+        },
+        {
+          type: '聽見小王子公益票',
+          paper: '元/張',
+          money: '???',
+          text: `
+            1. USB商品內含展覽主題曲、故事人聲音<br>
+            2. 票價之＿％將捐贈兒福單位<br>
+            3. 商品皆為預購，商品將於展覽現場兌換，不提供開展前/後寄送服務。
+          `,
+        },
+        {
+          type: '小王子生日快樂票',
+          paper: '元/張',
+          money: '175',
+          text: `
+            1. 與6月29日（作者生日）出生可享有特惠票優惠，隨票至現場兌換生日票小禮包。<br>
+            2. 享有免排隊快速通關入場<br>
+            3. 兌換票券時需出示本人相關證明文件，未攜帶本人證件需補足票價差額。
+          `,
+        },
+      ]
+    }
+  },
+  mounted () {
+    // 倒數
+    setInterval(()=> {
+      this.getRunTime()
+    }, 1000)
+
+    // aos
+    AOS.init()
+
+    // tilt
+    // https://micku7zu.github.io/vanilla-tilt.js/
+    // const element = document.querySelector(".js-tilt");
+    // VanillaTilt.init(element, {
+    //   max: 25,
+		//   speed: 400
+    // });
+    
+  },
+  computed: {
+    // swiper () { return this.$refs.mySwiper.$swiper },
+  },
+  methods: {
+    scrollEvent (id) {
+      this.$nextTick(() => {
+        this.$refs[id].scrollIntoView({ behavior: 'smooth' })
+      })
+    },
+    getRunTime () {
+      // 作法：https://blog.csdn.net/sinat_34104446/article/details/81259483
+      let setTime = new Date("2021/10/15 20:15:00")
+      let nowTime = new Date()
+
+      let restSec = setTime.getTime() - nowTime.getTime()
+
+      // let day = parseInt(restSec / (60*60*24*1000))
+      // let hour = parseInt(restSec / (60*60*1000) % 24)
+      let hour = parseInt(restSec / (60*60*1000))
+      let minu = parseInt(restSec / (60*1000) % 60)
+      let sec = parseInt(restSec / 1000 % 60)
+
+      this.runtime = ''
+
+      if(hour < 10) {
+        this.runtime =　'0' + hour + ':'
+      } else {
+        this.runtime = hour + ':'
+      }
+      if(minu < 10) {
+        this.runtime =　this.runtime + '0' + minu + ':'
+      } else {
+        this.runtime = this.runtime + minu + ':'
+      }
+      if(sec < 10) {
+        this.runtime =　this.runtime + '0' + sec
+      } else {
+        this.runtime = this.runtime + sec
+      }
+
+      
+    },
+    selectMark (mark) {
+      this.cleanMark()
+      switch (mark) {
+        case 1:
+          this.isSelectMark.one = true
+          break
+        case 2:
+          this.isSelectMark.two = true
+          break
+        case 3:
+          this.isSelectMark.three = true
+          break
+        case 4:
+          this.isSelectMark.four = true
+          break
+        case 5:
+          this.isSelectMark.five = true
+          break
+        case 6:
+          this.isSelectMark.six = true
+          break
+      }
+    },
+    cleanMark () {
+      this.isSelectMark.one = false
+      this.isSelectMark.two = false
+      this.isSelectMark.three = false
+      this.isSelectMark.four = false
+      this.isSelectMark.five = false
+      this.isSelectMark.six = false
+    }
+  },
+  watch: {
+    
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+
+.index {
+
+  &-prince-outer {
+    position: relative;
+    background: linear-gradient(180deg, #001D39 0%, #0C3966 28.34%, #0F3963 63.28%);
+  }
+
+  // 桌面版：小王子的藝想世界
+
+  &-prince-bt {
+
+    &-title {
+      position: absolute;
+      top: 2%;
+      left: 7%;
+      width: 20%;
+    }
+
+    &-sheep {
+      position: absolute;
+      top: 15%;
+      left: 20%;
+      width: 10%;
+    }
+
+    &-star1 {
+      position: absolute;
+      top: 30%;
+      left: 10%;
+      width: 7%;
+    }
+
+    &-star2 {
+      position: absolute;
+      top: 60%;
+      left: 15%;
+      width: 8%;
+    }
+
+    &-star3 {
+      position: absolute;
+      top: 80%;
+      left: 10%;
+      width: 5%;
+    }
+
+    &-star4 {
+      position: absolute;
+      top: 4%;
+      right: 10%;
+      width: 16%;
+    }
+
+    &-flower {
+      position: absolute;
+      top: 20%;
+      right: 16%;
+      width: 8%;
+    }
+
+    &-star5 {
+      position: absolute;
+      top: 50%;
+      right: 30%;
+      width: 50px;
+    }
+
+    &-board {
+      position: absolute;
+      top: 50%;
+      right: 2%;
+      width: 120px;
+    }
+
+    &-elephant {
+      position: absolute;
+      top: 70%;
+      right: 12%;
+      width: 14%;
+    }
+
+    &-star6 {
+      position: absolute;
+      top: 80%;
+      right: 4%;
+      width: 50px;
+    }
+
+  }
+
+  
+  // 小王子的藝想世界
+
+  &-prince {
+    position: relative;
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: center;
+    background-repeat: no-repeat;
+
+    &-star {
+      position: absolute;
+    }
+
+    &-man-box {
+      text-align: right;
+      padding-top: 30px;
+    }
+
+    &-man {
+      width: 80%;
+    }
+
+    &-title {
+      position: absolute;
+      left: 20px;
+      top: 0px;
+      width: 230px;
+      cursor: pointer;
+    }
+
+    &-exhi {
+      position: absolute;
+      left: 20px;
+      top: 150px;
+      width: 95px;
+      transform: translateY(-20px);
+    }
+
+    &-box {
+      position: absolute;
+      left: 0px;
+      top: 270px;
+      display: flex;
+    }
+
+    &-intro1 {
+      width: 100px;
+      height: 97px;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+
+    &-intro2 {
+      width: 80px;
+      margin: 10px 0px 0px 20px;
+      cursor: pointer;
+    }
+
+    &-intro3 {
+      position: absolute;
+      left: 0px;
+      top: 360px;
+      width: 90px;
+      cursor: pointer;
+    }
+  }
+
+  // 最新消息
+  &-news {
+    padding: 20px 0px 23px;
+
+    &-bg {
+      max-width: 372px;
+      height: 232px;
+      width: calc(100% - 40px);
+      margin: 0px 20px;
+      background-size: cover;
+      background-position-x: center;
+      background-position-y: center;
+      background-repeat: no-repeat;
+    }
+
+    &-head-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 65px;
+    }
+
+    &-head-hat {
+      width: 81px;
+    }
+
+    &-head-title {
+      width: 96px;
+    }
+
+    &-text {
+      padding: 18px 42px 0px;
+      line-height: 2.6;
+      color: #4D4D4D;
+      font-size: 12px;
+      
+    }
+  }
+
+  // 故事翻頁
+
+  &-book {
+    position: relative;
+
+    &-bg {
+      position: absolute;
+      width: 240px;
+    }
+
+    &-title {
+      width: calc(100% - 20px);
+      margin: 0px 10px;
+    }
+
+    &-rotate {
+      position: relative;
+      width: calc(100% - 40px);
+      margin: 0px 0px;
+      height: 460px;
+      background-size: cover;
+      background-position-x: center;
+      background-position-y: center;
+      background-repeat: no-repeat;
+      cursor: pointer;
+    }
+
+    &-mark {
+      position: absolute;
+      right: -20px;
+      width: 22px;
+      cursor: pointer;
+    }
+
+    &-mark1 {
+      top: 10px;
+    }
+
+    &-mark2 {
+      top: 80px;
+    }
+
+    &-mark3 {
+      top: 150px;
+    }
+
+    &-mark4 {
+      top: 220px;
+    }
+
+    &-mark5 {
+      top: 290px;
+    }
+
+    &-mark6 {
+      top: 360px;
+    }
+
+    &-swiper {
+
+    }
+
+    &-slide-box {
+      width: 60%;
+      margin: auto;
+      color: #4D4D4D;
+    }
+
+    &-img {
+      width: 160px;
+    }
+
+    &-head {
+      margin-top: 20px;
+      font-size: 17px;
+      text-align: center;
+    }
+
+    &-text {
+      margin-top: 10px;
+      font-size: 13px;
+      line-height: 1.5;
+
+      &::first-letter {
+        font-size: 20px;
+      }
+    }
+  }
+
+  // 藝術家介紹
+
+  &-art {
+    margin-top: 30px;
+
+    &-head-box {
+      margin: 0px 10px; 
+      display: flex;
+      align-items: center;
+    }
+
+    &-head {
+      width: calc(72% - 20px);
+    }
+
+    &-intro {
+      width: 28%;
+    }
+
+    &-text {
+      margin: 17px 28px;
+      line-height: 1.4;
+      letter-spacing: 0.8px;
+      font-size: 14px;
+      color: white;
+    }
+
+    &-rotate {
+
+    }
+
+    &-swiper {
+
+    }
+
+    &-slide {
+      text-align: center;
+    }
+
+    &-artist {
+      width: 200px;
+    }
+
+    &-line {
+      margin-top: 15px;
+      border-bottom: 1px dashed #778FB4;
+    }
+
+    &-img {
+      width: 100%;
+      margin-top: -10px;
+      transform: translateY(25px);
+    }
+  }
+
+
+  //------------------------------------------- 
+
+  &-exhi-outer {
+    position: relative;
+    background-color: #F5EDDC;
+  }
+
+  &-exhi-skin {
+
+    &-moon {
+      position: absolute;
+      left: 10%;
+      top: 20%;
+      width: 180px;
+    }
+
+    &-star {
+      position: absolute;
+      right: 20%;
+      top: 15%;
+      width: 73px;
+    }
+
+    &-sun {
+      position: absolute;
+      right: 0%;
+      top: 60%;
+      width: 180px;
+    }
+
+  }
+
+
+  // 展場介紹
+
+  &-exhi {
+    position: relative;
+    background-color: #F5EDDC;
+
+    &-text {
+      margin: 0px 27px;
+      padding: 20px 0px 14px;
+      line-height: 1.5;
+      letter-spacing: 0.8px;
+      font-size: 13px;
+      color: #4D4D4D;
+    }
+
+  }
+
+  // 章節
+
+  &-chapter {
+    position: relative;
+    background-color: #F5EDDC;
+
+    &-head-box {
+      width: calc(100% - 11px);
+      margin: 18px 11px 13px 0px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    &-head-left {
+      display: flex;
+    }
+
+    &-chapter {
+      width: 90px;
+      margin-right: 11px;
+    }
+
+    &-title {
+      margin-top: 4px;
+      font-size: 15px;
+      color: #4D4D4D;
+    }
+
+    &-tag {
+      margin-top: 5px;
+      font-size: 11px;
+      color: #317ABE;
+    }
+
+    &-arrow {
+      width: 24px;
+      transition: 0.3s;
+      transform: rotate(180deg);
+      cursor: pointer;
+    }
+
+    &-arrow-reverse {
+      transform: rotate(0deg);
+    }
+
+    &-box {
+      width: calc(100% - 62px);
+      // margin: 0px 11px;
+      padding: 12px 20px;
+      background: #FFFFFF;
+      border-radius: 11px;
+      text-align: center;
+    }
+
+    &-img {
+      width: 200px;
+    }
+
+    &-text {
+      margin-top: 8px;
+      line-height: 1.3;
+      letter-spacing: 0.8px;
+      font-size: 12px;
+      text-align: left;
+      color: #4A3620;
+    }
+
+    &-line {
+      width: calc(100% - 22px);
+      margin: 11px auto 0px;
+      border-bottom: 1px dashed #778FB4;
+    }
+
+    &-gallery {
+      padding: 20px 0px;
+      background-color: black;
+
+      &-swiper {
+        
+      }
+
+      &-img {
+        width: 94%;
+        margin: 0px 13px;
+      }
+    }
+
+    &-snack-box {
+      padding: 9px 0px 34px;
+    }
+
+    &-snack {
+      width: 80px;
+    }
+  }
+
+
+  //------------------------------------------- 
+  // 購票資訊
+
+  &-ticket-outer {
+    position: relative;
+    background-color: white;
+  }
+
+  &-ticket-white {
+
+    &-sun {
+      position: absolute;
+      left: 0%;
+      top: -7%;
+      width: 140px;
+    }
+
+    &-fox {
+      position: absolute;
+      left: 8%;
+      top: 35%;
+      width: 128px;
+    }
+
+    &-prince {
+      position: absolute;
+      left: 0%;
+      top: 75%;
+      width: 450px;
+    }
+
+    &-airplane {
+      position: absolute;
+      right: 8%;
+      top: 15%;
+      width: 220px;
+    }
+
+    &-star {
+      position: absolute;
+      right: 15%;
+      top: 55%;
+      width: 73px;
+    }
+
+    &-flower {
+      position: absolute;
+      right: 5%;
+      top: 70%;
+      width: 400px;
+    }
+  }
+
+  &-ticket {
+    position: relative;
+    padding-top: 25px;
+    background-color: white;
+
+    &-title {
+      width: 200px;
+    }
+
+    &-airplane {
+      position: absolute;
+      top: -100px;
+      right: 0px;
+      width: 180px;
+    }
+
+    &-sub {
+      position: relative;
+      margin: 10px 34px 0px;
+      padding-bottom: 148px;
+      font-size: 13px;
+      line-height: 1.5;
+      letter-spacing: 0.8px;
+      color: #4D4D4D;
+      z-index: 2;
+    }
+
+    &-land {
+      position: absolute;
+      top: 152px;
+      width: 100%;
+    }
+
+    &-box {
+      width: calc(100% - 24px);
+      margin: 0px 12px;
+    } 
+    
+    // 票
+
+    &-head-box {
+      display: flex;
+      align-items: baseline;
+      margin: 40px 0px 0px;
+    }
+
+    &-head-fox {
+      width: 50px;
+    }
+
+    &-head {
+      font-size: 20px;
+      color: #674F4F;
+    }
+    &-line {
+      margin: 14px 0px;
+      border-bottom: 1px dashed #778FB4;
+    }
+
+    // 票種
+
+    &-row-box {
+
+      &:nth-child(3)  .index-ticket-type {
+        letter-spacing: 8px;
+        padding: 0px 0px 0px 4px;
+      }
+
+      &:nth-child(7)  .index-ticket-type {
+        letter-spacing: 8px;
+        padding: 0px 0px 0px 4px;
+      }
+
+      &:nth-child(9)  .index-ticket-type {
+        height: 45px;
+        line-height: initial;
+        padding: 10px 0px;
+      }
+
+      &:nth-child(10)  .index-ticket-type {
+        height: 45px;
+        line-height: initial;
+        padding: 10px 0px;
+      }
+
+    }
+
+    &-row {
+      display: flex;
+      color: #674F4F;
+
+    }
+
+    &-type {
+      width: 96px;
+      height: 37px;
+      line-height: 40px;
+      background-size: cover;
+      background-position-x: center;
+      background-position-y: center;
+      background-repeat: no-repeat;
+      margin-right: 15px;
+      font-size: 17px;
+      text-align: center;
+    }
+
+    &-desc {
+      width: calc(100% - 100px);
+    }
+
+    &-desc-name {
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    &-desc-name-big {
+      font-size: 19px;
+    }
+
+    &-desc-text {
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    // 平台
+
+    &-hint {
+      margin: 38px 0px 15px;
+      text-align: center;
+      color: #674F4F;
+      font-size: 15px;
+    }
+
+    &-place-left {
+      display: flex;
+      margin-left: 13px;
+    }
+
+    &-place-right {
+      padding-bottom: 257px;
+      display: flex;
+      justify-content: flex-end;
+      margin: 5px 13px 0px 0px;
+    }
+
+    &-place {
+      width: 120px;
+      margin: 0px 5px;
+      cursor: pointer;
+    }
+
+
+  }
+
+  
+
+  //-------------------------------------------
+  // 小王子商店 
+
+  &-store-outer {
+    position: relative;
+    background: linear-gradient(180deg, #6385B2 0%, #335A85 15.1%, #0F3963 37.5%);
+  }
+
+  &-store-bb {
+
+    &-star1 {
+      position: absolute;
+      left: 20%;
+      top: 5%;
+      width: 73px;
+    }
+
+    &-star2 {
+      position: absolute;
+      left: 10%;
+      top: 30%;
+      width: 73px;
+    }
+
+    &-elephant {
+      position: absolute;
+      left: 0%;
+      top: 50%;
+      width: 15%;
+    }
+
+    &-tree1 {
+      position: absolute;
+      left: 0%;
+      bottom: 0%;
+      width: 30%;
+    }
+
+    &-moon {
+      position: absolute;
+      right: 0%;
+      top: 10%;
+      width: 30%;
+    }
+
+    &-tree2 {
+      position: absolute;
+      right: 0%;
+      bottom: 0%;
+      width: 30%;
+    }
+  }
+
+  &-store {
+    position: relative;
+    text-align: center;
+
+    &-tree {
+      position: absolute;
+      top: -210px;
+      left: 0px;
+      width: 100%;
+    }
+
+    &-title {
+      width: 80%;
+      padding-top: 365px;
+    }
+
+    &-tab-box {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    &-tab {
+      margin: 0px 10px;
+      font-size: 15px;
+      color: #A8B9D1;
+    }
+
+    &-go-box {
+      padding: 30px 0px 0px;
+      margin-bottom: -10px;
+    }
+
+    &-go {
+      width: 112px;
+      height: 58px;
+      line-height: 4.7;
+      background-size: cover;
+      background-position-x: center;
+      background-position-y: center;
+      background-repeat: no-repeat;
+      margin: auto;
+      padding-right: 15px;
+      font-size: 15px;
+      font-weight: bold;
+      color: #4A3620;
+      cursor: pointer;
+    }
+
+    &-land {
+      position: relative;
+      bottom: -44px;
+      width: 100%;
+    }
+
+  }
+
+  // 贊助單位
+
+  &-sponsor {
+    background-color: white;
+
+    &-title {
+      padding: 80px 0px;
+      font-size: 16px;
+      color: #4d4d4d;
+      text-align: center;
+    }
+
+    &-rotate {
+      padding: 0px 0px 40px;
+    }
+  }
+
+  // footer
+
+  &-footer {
+    padding: 23px 15px 46px;
+    background-color: #E8E1D1;
+
+    &-box {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &-text {
+      margin: 0px 5px 11px;
+      line-height: 1.5;
+      font-size: 12px;
+      text-align: left;
+      color: #4D4D4D;
+    }
+
+    &-social-box {
+      padding: 0px 10px;
+      text-align: left;
+    }
+
+    &-social {
+      height: 17px;
+      margin-right: 8px;
+      cursor: pointer;
+    }
+
+    &-copyright {
+      margin-top: 12px;
+      font-size: 12px;
+      color: #9B9B9B;
+    }
+  }
+
+
+  // sidebar
+
+  &-side {
+    position: fixed;
+    bottom: 10vh;
+    right: 10px;
+
+    &-box {
+      width: 90px;
+      height: 80px;
+      background-size: cover;
+      background-position-x: center;
+      background-position-y: center;
+      background-repeat: no-repeat;
+    }
+
+    &-text {
+      padding: 44px 3px 0px 0px;
+      line-height: 1.3;
+      color: #564242;
+      font-size: 12px;
+      text-align: center;
+    }
+  }
+
+}
+
+@media( max-width: 1023px ){
+
+  // 部分關
+
+  .index {
+
+    &-prince-bt {
+
+      &-title {
+        display: none;
+      }
+
+      &-sheep {
+        display: none;
+      }
+
+      &-flower {
+        display: none;
+      }
+
+      &-board {
+        display: none;
+      }
+
+      &-elephant {
+        display: none;
+      }
+
+    }
+
+    &-exhi-skin {
+
+
+      &-moon {
+        display: none;
+      }
+
+      &-sun {
+        display: none;
+      }
+    }
+
+    &-ticket-white {
+
+      &-sun {
+        display: none;
+      }
+
+      &-fox {
+        display: none;
+      }
+
+      &-prince {
+        display: none;
+      }
+
+      &-airplane {
+        display: none;
+      }
+
+      &-flower {
+        display: none;
+      }
+    }
+
+    &-store-bb {
+
+      &-elephant {
+        display: none;
+      }
+
+      &-moon {
+        display: none;
+      }
+
+    }
+
+  }
+
+}
+
+@media( max-width: 500px ){
+
+  // 部分關
+  .index {
+
+    &-store-bb {
+
+      &-star1 {
+        display: none;
+      }
+
+      &-star2 {
+        display: none;
+      }
+
+      &-tree1 {
+        display: none;
+      }
+
+      &-tree2 {
+        display: none;
+      }
+    }
+  }
+
+}
+
+@media( max-width: 375px ){
+
+  // 全關
+
+}
+
+</style>
