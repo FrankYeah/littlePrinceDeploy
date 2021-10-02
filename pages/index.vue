@@ -4,22 +4,28 @@
     <!-- --------------------------------------- -->
     <!-- box content -->
     <div class="index-prince-outer">
-      <img class="index-prince-bt-title" v-lazy="require('@/assets/img/desktop/bt-title.png')" alt="title">
       <img class="index-prince-bt-sheep" v-lazy="require('@/assets/img/desktop/bt-sheep.png')" alt="sheep">
-      <img class="index-prince-bt-star1" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
-      <img class="index-prince-bt-star2" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
-      <img class="index-prince-bt-star3" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
-      <img class="index-prince-bt-star4" v-lazy="require('@/assets/img/desktop/star2.png')" alt="star">
+      <img class="index-prince-bt-starL1" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
+      <img class="index-prince-bt-starL2" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
+      <img class="index-prince-bt-starL3" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
+      <img class="index-prince-bt-starL4" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
+      <img class="index-prince-bt-starL5" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
+      <img class="index-prince-bt-starL6" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
+      <img class="index-prince-bt-starL7" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
+
       <img class="index-prince-bt-flower" v-lazy="require('@/assets/img/desktop/bt-flower.png')" alt="flower">
-      <img class="index-prince-bt-star5" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
       <img class="index-prince-bt-board" v-lazy="require('@/assets/img/desktop/bt-board.png')" alt="board">
       <img class="index-prince-bt-elephant" v-lazy="require('@/assets/img/desktop/bt-elephant.png')" alt="elephant">
-      <img class="index-prince-bt-star6" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
+      <img class="index-prince-bt-starR1" v-lazy="require('@/assets/img/desktop/star2.png')" alt="star">
+      <img class="index-prince-bt-starR2" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
+      <img class="index-prince-bt-starR3" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
+      <img class="index-prince-bt-starR4" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
+      <img class="index-prince-bt-starR5" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
+      <img class="index-prince-bt-starR6" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
 
       <!-- 小王子的藝想世界 -->
       <boxContent class="index-prince" v-lazy:background-image="require('@/assets/img/index/prince-star.png')">
         <div class="index-prince-bg"></div>
-        <img class="index-prince-star" v-lazy="require('@/assets/img/common/star.png')" alt="star">
         <div class="index-prince-man-box">
           <img class="index-prince-man" v-lazy="require('@/assets/img/index/prince-blue.png')" alt="star">
         </div>
@@ -185,9 +191,8 @@
       <img class="index-ticket-white-sun" v-lazy="require('@/assets/img/desktop/white-sun.png')" alt="sun">
       <img class="index-ticket-white-fox" v-lazy="require('@/assets/img/desktop/white-fox.png')" alt="fox">
       <img class="index-ticket-white-prince" v-lazy="require('@/assets/img/desktop/white-prince.png')" alt="prince">
-      <img class="index-ticket-white-airplane" v-lazy="require('@/assets/img/desktop/white-airplane.png')" alt="airplane">
-      <img class="index-ticket-white-star" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
       <img class="index-ticket-white-flower" v-lazy="require('@/assets/img/desktop/white-flower.png')" alt="flower">
+      <img class="index-ticket-white-sun2" v-lazy="require('@/assets/img/desktop/white-sun.png')" alt="flower">
 
 
 
@@ -255,7 +260,10 @@
       <img class="index-store-bb-star2" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
       <img class="index-store-bb-elephant" v-lazy="require('@/assets/img/desktop/bb-elephant.png')" alt="elephant">
       <img class="index-store-bb-tree1" v-lazy="require('@/assets/img/desktop/bb-tree1.png')" alt="tree">
-      <img class="index-store-bb-moon" v-lazy="require('@/assets/img/desktop/bb-moon.png')" alt="moon">
+
+      
+      <img class="index-store-bb-star3" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
+      <img class="index-store-bb-star4" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
       <img class="index-store-bb-tree2" v-lazy="require('@/assets/img/desktop/bb-tree2.png')" alt="tree">
 
 
@@ -282,10 +290,10 @@
         <img class="index-store-land" v-lazy="require('@/assets/img/index/sponsor-img.png')" alt="sponsor">
 
 
-        <!-- 贊助單位 -->
+        <!-- 協力單位 -->
 
         <div class="index-sponsor">
-          <div class="index-sponsor-title">贊助單位</div>
+          <div class="index-sponsor-title">協力單位</div>
 
           <div class="index-sponsor-rotate">
             <!-- 輪播 -->輪播
@@ -678,12 +686,7 @@ export default {
 
   &-prince-bt {
 
-    &-title {
-      position: absolute;
-      top: 2%;
-      left: 7%;
-      width: 20%;
-    }
+
 
     &-sheep {
       position: absolute;
@@ -692,47 +695,62 @@ export default {
       width: 10%;
     }
 
-    &-star1 {
+    &-starL1 {
       position: absolute;
-      top: 30%;
+      top: 5%;
+      left: 12%;
+      width: 70px;
+    }
+
+    &-starL2 {
+      position: absolute;
+      top: 15%;
+      left: 7%;
+      width: 70px;
+    }
+
+    &-starL3 {
+      position: absolute;
+      top: 24%;
+      left: 18%;
+      width: 70px;
+    }
+
+    &-starL4 {
+      position: absolute;
+      top: 37%;
+      left: 7%;
+      width: 70px;
+    }
+
+    &-starL5 {
+      position: absolute;
+      top: 45%;
+      left: 16%;
+      width: 54px;
+    }
+
+    &-starL6 {
+      position: absolute;
+      top: 68%;
       left: 10%;
-      width: 7%;
+      width: 70px;
     }
 
-    &-star2 {
+    &-starL7 {
       position: absolute;
-      top: 60%;
-      left: 15%;
-      width: 8%;
-    }
-
-    &-star3 {
-      position: absolute;
-      top: 80%;
-      left: 10%;
-      width: 5%;
-    }
-
-    &-star4 {
-      position: absolute;
-      top: 4%;
-      right: 10%;
-      width: 16%;
+      top: 82%;
+      left: 18%;
+      width: 67px;
     }
 
     &-flower {
       position: absolute;
-      top: 20%;
+      top: 13%;
       right: 16%;
       width: 8%;
     }
 
-    &-star5 {
-      position: absolute;
-      top: 50%;
-      right: 30%;
-      width: 50px;
-    }
 
     &-board {
       position: absolute;
@@ -748,11 +766,46 @@ export default {
       width: 14%;
     }
 
-    &-star6 {
+    &-starR1 {
       position: absolute;
-      top: 80%;
-      right: 4%;
-      width: 50px;
+      top: 4%;
+      right: 10%;
+      width: 110px;
+    }
+
+    &-starR2 {
+      position: absolute;
+      top: 27%;
+      right: 15%;
+      width: 66px;
+    }
+
+    &-starR3 {
+      position: absolute;
+      top: 38%;
+      right: 22%;
+      width: 52px;
+    }
+
+    &-starR4 {
+      position: absolute;
+      top: 60%;
+      right: 20%;
+      width: 60px;
+    }
+
+    &-starR5 {
+      position: absolute;
+      top: 81%;
+      right: 10%;
+      width: 54px;
+    }
+
+    &-starR6 {
+      position: absolute;
+      top: 90%;
+      right: 24%;
+      width: 61px;
     }
 
   }
@@ -766,10 +819,6 @@ export default {
     background-position-x: center;
     background-position-y: center;
     background-repeat: no-repeat;
-
-    &-star {
-      position: absolute;
-    }
 
     &-man-box {
       text-align: right;
@@ -1004,7 +1053,7 @@ export default {
     &-img {
       width: 100%;
       margin-top: -10px;
-      transform: translateY(25px);
+      transform: translateY(15px);
     }
   }
 
@@ -1029,14 +1078,15 @@ export default {
       position: absolute;
       right: 20%;
       top: 15%;
-      width: 73px;
+      width: 41px;
     }
 
     &-sun {
       position: absolute;
       right: 0%;
-      top: 60%;
+      bottom: -10%;
       width: 180px;
+      z-index: 2;
     }
 
   }
@@ -1079,6 +1129,7 @@ export default {
 
     &-chapter {
       width: 90px;
+      height: 37px;
       margin-right: 11px;
     }
 
@@ -1177,7 +1228,7 @@ export default {
     &-fox {
       position: absolute;
       left: 8%;
-      top: 35%;
+      top: 15%;
       width: 128px;
     }
 
@@ -1188,25 +1239,20 @@ export default {
       width: 450px;
     }
 
-    &-airplane {
-      position: absolute;
-      right: 8%;
-      top: 15%;
-      width: 220px;
-    }
-
-    &-star {
-      position: absolute;
-      right: 15%;
-      top: 55%;
-      width: 73px;
-    }
-
     &-flower {
       position: absolute;
       right: 5%;
-      top: 70%;
+      top: 50%;
       width: 400px;
+    }
+
+    &-sun2 {
+      position: absolute;
+      right: 0%;
+      bottom: -6%;
+      width: 140px;
+      transform: rotate(180deg);
+      z-index: 2;
     }
   }
 
@@ -1378,16 +1424,16 @@ export default {
 
     &-star1 {
       position: absolute;
-      left: 20%;
+      left: 10%;
       top: 5%;
-      width: 73px;
+      width: 80px;
     }
 
     &-star2 {
       position: absolute;
-      left: 10%;
+      left: 20%;
       top: 30%;
-      width: 73px;
+      width: 62px;
     }
 
     &-elephant {
@@ -1404,11 +1450,18 @@ export default {
       width: 30%;
     }
 
-    &-moon {
+    &-star3 {
       position: absolute;
-      right: 0%;
-      top: 10%;
-      width: 30%;
+      right: 10%;
+      top: 24%;
+      width: 80px;
+    }
+
+    &-star4 {
+      position: absolute;
+      right: 15%;
+      top: 55%;
+      width: 62px;
     }
 
     &-tree2 {
@@ -1476,7 +1529,7 @@ export default {
 
   }
 
-  // 贊助單位
+  // 協力單位
 
   &-sponsor {
     background-color: white;
@@ -1566,7 +1619,55 @@ export default {
 
     &-prince-bt {
 
-      &-title {
+      &-starL1 {
+        display: none;
+      }
+
+      &-starL2 {
+        display: none;
+      }
+
+      &-starL3 {
+        display: none;
+      }
+
+      &-starL4 {
+        display: none;
+      }
+
+      &-starL5 {
+        display: none;
+      }
+
+      &-starL6 {
+        display: none;
+      }
+
+      &-starL7 {
+        display: none;
+      }
+
+      &-starR1 {
+        display: none;
+      }
+
+      &-starR2 {
+        display: none;
+      }
+
+      &-starR3 {
+        display: none;
+      }
+
+      &-starR4 {
+        display: none;
+      }
+
+      &-starR5 {
+        display: none;
+      }
+
+      &-starR6 {
         display: none;
       }
 
@@ -1585,6 +1686,8 @@ export default {
       &-elephant {
         display: none;
       }
+
+
 
     }
 
@@ -1614,11 +1717,11 @@ export default {
         display: none;
       }
 
-      &-airplane {
+      &-flower {
         display: none;
       }
 
-      &-flower {
+      &-sun2 {
         display: none;
       }
     }
@@ -1655,6 +1758,14 @@ export default {
       }
 
       &-tree1 {
+        display: none;
+      }
+
+      &-star3 {
+        display: none;
+      }
+
+      &-star4 {
         display: none;
       }
 

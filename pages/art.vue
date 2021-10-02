@@ -7,7 +7,7 @@
       <img class="art-star4" src="@/assets/img/common/star.png" alt="star">
       <img class="art-star5" src="@/assets/img/common/star.png" alt="star">
       <img class="art-star6" src="@/assets/img/common/star.png" alt="star">
-      <img class="art-seven-five" src="@/assets/img/art/seven-five.png" alt="seven">
+      <img class="art-star7" src="@/assets/img/common/star.png" alt="seven">
       <img class="art-sun" src="@/assets/img/art/sun.png" alt="sun">
       <img class="art-tree" src="@/assets/img/art/tree.png" alt="tree">
       <boxContent class="art-artist">
@@ -15,6 +15,7 @@
           <img class="art-artist-arrow" src="@/assets/img/common/back.png" alt="artist">
         </router-link>
         <img class="art-artist-title" src="@/assets/img/index/title-artist.png" alt="back">
+        <img class="art-artist-star" src="@/assets/img/common/star.png" alt="star">
       
         <!-- 輪播 -->
         <div class="art-artist-rotate">
@@ -112,7 +113,7 @@ export default {
         },
         {
           img: '',
-          name: 'Steven Choi',
+          name: '蔡景康',
           job: '藝術家',
           location: '台灣',
           text: `
@@ -182,7 +183,7 @@ export default {
     position: absolute;
     left: 8%;
     top: 10%;
-    width: 65px;
+    width: 74px;
   }
 
 
@@ -190,42 +191,42 @@ export default {
     position: absolute;
     left: 0px;
     top: 40%;
-    width: 30px;
+    width: 85px;
   }
 
   &-star3 {
     position: absolute;
     left: 20%;
     top: 70%;
-    width: 60px;
+    width: 82px;
   }
 
   &-star4 {
     position: absolute;
     right: 16%;
     top: 10%;
-    width: 55px;
+    width: 70px;
   }
 
   &-star5 {
     position: absolute;
     right: 18%;
     top: 30%;
-    width: 50px;
+    width: 74px;
   }
 
   &-star6 {
     position: absolute;
     right: 24%;;
     top: 50%;
-    width: 60px;
+    width: 80px;
   }
 
-  &-seven-five {
+  &-star7 {
     position: absolute;
     left: 12%;
     top: 40%;
-    width: 200px;
+    width: 70px;
   }
 
   &-sun {
@@ -260,6 +261,13 @@ export default {
 
     &-title {
       width: 240px;
+    }
+
+    &-star {
+      position: absolute;
+      top: 84px;
+      left: 13px;
+      width: 70px;
     }
     
     &-rotate {
@@ -374,7 +382,7 @@ export default {
     display: none;
   }
 
-  &-seven-five {
+  &-star7 {
     display: none;
   }
 
