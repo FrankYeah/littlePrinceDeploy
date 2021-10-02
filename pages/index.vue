@@ -47,9 +47,12 @@
       <!-- 最新消息 -->
       <boxContent class="index-news">
         <div class="index-news-bg" v-lazy:background-image="require('@/assets/img/index/news-papper.png')">
+          <img class="index-news-head-hat" v-lazy="require('@/assets/img/index/news-hat.png')" alt="hat">
           <div class="index-news-head-box">
-            <img class="index-news-head-hat" v-lazy="require('@/assets/img/index/news-hat.png')" alt="hat">
             <img class="index-news-head-title" v-lazy="require('@/assets/img/index/title-news.png')" alt="hat">
+            <a href="https://www.facebook.com/LePetitPrince.75tw" target="facebook">
+              <img class="index-news-fb" v-lazy="require('@/assets/img/index/news-fb.png')" alt="hat">
+            </a>
           </div>
           <div class="index-news-text">早鳥優惠價280元限時優惠（原價350元/張），即日起至10/31止，全檔期唯一最低單價票種，暢遊5大劇場情境式展區，完整走入小王子的世界！</div>
         </div>
@@ -136,7 +139,7 @@
         <div v-for="(chapter, index) in chapterContent"
           :key="index"
         >
-          <div class="index-chapter-head-box">
+          <div @click="isShowChapter[chapter.num] = !isShowChapter[chapter.num]" class="index-chapter-head-box">
             <!-- 左 -->
             <div class="index-chapter-head-left">
               <img class="index-chapter-chapter" v-lazy="require(`@/assets/img/index/chapter${index+1}.png`)" alt="intro">
@@ -146,7 +149,7 @@
               </div>
             </div>
             <!-- 右 -->
-            <img @click="isShowChapter[chapter.num] = !isShowChapter[chapter.num]"
+            <img
               :class="['index-chapter-arrow', {'index-chapter-arrow-reverse': isShowChapter[chapter.num]}]"
               v-lazy="require('@/assets/img/index/swiper-icon.png')" alt="intro"
             >
@@ -445,7 +448,7 @@ export default {
       chapterContent: [
         {
           num: 'one',
-          title: 'Start｜日出/遇見小王子',
+          title: 'START｜日出/遇見小王子',
           tag: '＃相遇',
           img: '',
           text: `
@@ -465,7 +468,7 @@ export default {
         },
         {
           num: 'three',
-          title: 'Six Stars｜六個星球的探索',
+          title: 'SIX PLANETS｜六個星球的探索',
           tag: '＃探索',
           img: '',
           text: `
@@ -474,7 +477,7 @@ export default {
         },
         {
           num: 'four',
-          title: 'Salut｜再見/落日與星空',
+          title: 'SALUT｜再見/落日與星空',
           tag: '＃道別',
           img: '',
           text: `
@@ -484,7 +487,7 @@ export default {
         },
         {
           num: 'five',
-          title: 'Rose garden｜玫瑰花園',
+          title: 'ROSE GARDEN｜玫瑰花園',
           tag: '＃追尋',
           img: '',
           text: `
@@ -879,34 +882,42 @@ export default {
     padding: 20px 0px 23px;
 
     &-bg {
+      position: relative;
       max-width: 372px;
       height: 232px;
-      width: calc(100% - 40px);
-      margin: 0px 20px;
-      background-size: cover;
+      width: calc(100% - 0px);
+      margin: 0px 0px;
+      background-size: contain;
       background-position-x: center;
       background-position-y: center;
       background-repeat: no-repeat;
+    }
+
+    &-head-hat {
+      position: absolute;
+      top: -4px;
+      width: 81px;
     }
 
     &-head-box {
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-right: 65px;
-    }
-
-    &-head-hat {
-      width: 81px;
+      padding-top: 56px;
     }
 
     &-head-title {
       width: 96px;
     }
 
+    &-fb {
+      width: 25px;
+      margin-left: 20px;
+    }
+
     &-text {
-      padding: 18px 42px 0px;
-      line-height: 2.6;
+      padding: 12px 56px 0px;
+      line-height: 1.8;
       color: #4D4D4D;
       font-size: 12px;
       
