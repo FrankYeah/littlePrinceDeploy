@@ -24,7 +24,14 @@ export default {
     }
   },
   mounted () {
-
+    // 點開手機版輸入框時，要避免畫面滑動
+    let mo = function (e) { e.preventDefault() }
+    document.body.style.overflowX='hidden'
+    document.addEventListener('touchmove', mo, false)
+    this.$nextTick(() => {
+      document.body.style.overflowX='hidden'
+      document.body.addEventListener('touchmove', mo, {passive:false})
+    })
   },
   computed: {
 
@@ -92,6 +99,7 @@ body {
   padding: 0px;
   font-family: 'Georama' ,'Noto Sans TC', 'Noto Sans SC', sans-serif;
   background-color: #f0f0f0;
+  overflow-x: hidden;
   // font-family: 'GoudyOldStyle,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,PingFang TC,Hiragino Sans GB,Microsoft JhengHei,sans-serif!important';
 }
 

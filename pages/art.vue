@@ -60,7 +60,7 @@ import VanillaTilt from 'vanilla-tilt';
 
 export default {
   head: {
-    title: '藝術家介紹',
+    title: '小王子的藝想世界 75 周年特展',
   },
   layout: 'default',
   components: {

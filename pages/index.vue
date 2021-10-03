@@ -25,12 +25,18 @@
 
       <!-- 小王子的藝想世界 -->
       <boxContent class="index-prince" v-lazy:background-image="require('@/assets/img/index/prince-star.png')">
-        <div class="index-prince-bg"></div>
+        
         <div class="index-prince-man-box">
-          <img class="index-prince-man" v-lazy="require('@/assets/img/index/prince-blue.png')" alt="star">
+          <img class="index-prince-moon" v-lazy="require('@/assets/img/index/prince-moon.png')" alt="moon">
         </div>
-
+        
+        
+        <div class="index-prince-bg"></div>
+        <img class="index-prince-man" v-lazy="require('@/assets/img/index/prince-bird.png')" alt="bird">
         <img class="index-prince-title" v-lazy="require('@/assets/img/index/title-anniversary.png')" alt="anniversary">
+        <img class="index-prince-star1" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
+        <img class="index-prince-star2" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
+        <img class="index-prince-star3" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
         <div>
           <img class="index-prince-exhi" v-lazy="require('@/assets/img/index/prince-exhibition.png')" alt="exhibition">
         </div>
@@ -60,8 +66,15 @@
 
       <!-- 故事翻頁 -->
       <boxContent class="index-book">
-        <img class="index-book-bg" v-lazy="require('@/assets/img/index/book-bg.png')" alt="bg">
-        <img class="index-book-title" v-lazy="require('@/assets/img/index/title-prince.png')" alt="prince">
+        <img class="index-book-title"
+          data-aos="fade-in" data-aos-delay="100" data-aos-duration="800" data-aos-easing="ease-in-sine" v-lazy="require('@/assets/img/index/title-prince.png')"
+          alt="prince"
+        >
+        <div class="index-book-desc">
+          #尋找 找到你心中的小王子<br>
+          " All grown-ups were children first. (But few of them remember it.) "<br>
+          問題不在於長大，在於你忘了自己曾是個小孩。
+        </div>
         <!-- 缺文字 img -->
 
         <div class="index-book-rotate" v-lazy:background-image="require('@/assets/img/index/book-filp.png')">
@@ -99,7 +112,10 @@
       <boxContent class="index-art">
         <div class="index-art-head-box">
           <img class="index-art-head" v-lazy="require('@/assets/img/index/title-artist.png')" alt="artist">
-          <img class="index-art-intro" v-lazy="require('@/assets/img/index/art-intro.png')" alt="intro">
+          <img class="index-art-intro"
+            data-aos="fade-left" data-aos-delay="1200" data-aos-duration="800" data-aos-easing="ease-in-sine"
+            v-lazy="require('@/assets/img/index/art-intro.png')" alt="intro"
+          >
         </div>
         <div class="index-art-text">邀集國內外藝術家以全新視角詮釋，從視覺藝術到驚喜引導的故事人聲、量身定做的展場原聲音樂環繞，透過奇幻氛圍的劇場空間與沈浸式互動投影聯手，和小王子一起來趟暖心療癒的星球旅行吧！</div>
         <div class="index-art-rotate">
@@ -205,8 +221,14 @@
 
     <!-- 購票資訊 -->
       <boxContent class="index-ticket">
-        <img class="index-ticket-title" v-lazy="require('@/assets/img/index/title-buy.png')" alt="info">
-        <img class="index-ticket-airplane" v-lazy="require('@/assets/img/index/ticket-airplane.png')" alt="airplane">
+        <img class="index-ticket-title"
+          data-aos="fade-right" data-aos-delay="1200" data-aos-duration="800" data-aos-easing="ease-in-sine"
+          v-lazy="require('@/assets/img/index/title-buy.png')" alt="info"
+        >
+        <img
+          data-aos="fade-down-left" data-aos-delay="1200" data-aos-duration="800" data-aos-easing="ease-in-sine"
+          class="index-ticket-airplane" v-lazy="require('@/assets/img/index/ticket-airplane.png')" alt="airplane"
+        >
         <div class="index-ticket-sub">
           購票須知：<br>
           為能達成控管入場人流與最佳觀展品質，將於「開展前一個月」開訪提供參觀時段預約連結。於入場時配合防疫措施，完成實聯制並進行消毒雙手及測量體溫（現場將備有消毒酒精），並且記得參觀時應全程佩戴口罩喔！
@@ -280,7 +302,10 @@
 
       <!-- 小王子商店 -->
       <boxContent class="index-store">
-        <img class="index-store-tree" v-lazy="require('@/assets/img/index/store-tree.png')" alt="tree">
+        <img class="index-store-tree"
+          data-aos="fade-in" data-aos-delay="1200" data-aos-duration="800" data-aos-easing="ease-in-sine"
+          v-lazy="require('@/assets/img/index/store-tree.png')" alt="tree"
+          >
         <img class="index-store-title" v-lazy="require('@/assets/img/index/title-store.png')" alt="store">
 
         <div class="index-store-tab-box">
@@ -314,39 +339,40 @@
 
         <!-- footer -->
         <div class="index-footer">
-          <div class="index-footer-box">
-            <div>
-              <div class="index-footer-text">主辦單位｜為美學有限公司</div>
-              <div class="index-footer-text">協同策展｜群眾自造股份有限公司</div>
-              <div class="index-footer-text">授權單位｜薩摩亞商羚邦亞洲有限公司</div>
-            </div>
-            <div>
-              <div class="index-footer-text">行銷團隊｜大宇宙情報股份有限公司</div>
-              <div class="index-footer-text">行銷顧問｜貝殼放大股份有限公司</div>
-              <div class="index-footer-text">商品開發｜可蘿國際股份有限公司</div>
+
+          <div class="index-footer-outer-box">
+            <div class="index-footer-box">
+              <div>
+                <div class="index-footer-text">主辦單位｜為美學有限公司</div>
+                <div class="index-footer-text">協同策展｜群眾自造股份有限公司</div>
+                <div class="index-footer-text">授權單位｜薩摩亞商羚邦亞洲有限公司</div>
+              </div>
+              <div>
+                <div class="index-footer-text">行銷團隊｜大宇宙情報股份有限公司</div>
+                <div class="index-footer-text">行銷顧問｜貝殼放大股份有限公司</div>
+                <div class="index-footer-text">商品開發｜可蘿國際股份有限公司</div>
+              </div>
             </div>
 
+            <div class="index-footer-social-box">
+              <a href="https://www.facebook.com/LePetitPrince.75tw" target="facebook">
+                <img class="index-footer-social" v-lazy="require('@/assets/img/index/social-fb.png')" alt="sponsor">
+              </a>
+              <a href="https://www.instagram.com/le_petit_prince75th_tw" target="_blank">
+                <img class="index-footer-social" v-lazy="require('@/assets/img/index/social-ig.png')" alt="instagram">
+              </a>
+              <a href="mailto:service@weiyunchang.com" target="_blank">
+                <img class="index-footer-social" v-lazy="require('@/assets/img/index/social-email.png')" alt="mail">
+              </a>
+            </div>
           </div>
 
-          <div class="index-footer-social-box">
-            <a href="https://www.facebook.com/LePetitPrince.75tw" target="facebook">
-              <img class="index-footer-social" v-lazy="require('@/assets/img/index/social-fb.png')" alt="sponsor">
-            </a>
-            <a href="https://www.instagram.com/le_petit_prince75th_tw" target="_blank">
-              <img class="index-footer-social" v-lazy="require('@/assets/img/index/social-ig.png')" alt="instagram">
-            </a>
-            <a href="mailto:service@weiyunchang.com" target="_blank">
-              <img class="index-footer-social" v-lazy="require('@/assets/img/index/social-email.png')" alt="mail">
-            </a>
-            
-            
-            
+          <div class="index-footer-copyright">
+            <img class="index-footer-copyright-img" v-lazy="require('@/assets/img/index/copyright.png')" alt="copyright">
           </div>
-
-          <div class="index-footer-copyright">copyright</div>
-
 
         </div>
+        
 
 
       </boxContent>
@@ -404,7 +430,7 @@ export default {
       swiperOptionArt: {
         slidesPerView: 1,
         initialSlide: 1,
-        spaceBetween: -168,
+        spaceBetween: -138,
         lazy: true,
         pagination: {
           el: '.swiper-pagination',
@@ -842,10 +868,27 @@ export default {
 
     &-man-box {
       text-align: right;
-      padding-top: 30px;
+      padding: 232px 0px 50px;
+    }
+
+    &-moon {
+      width: 50%;
+    }
+
+    &-bg {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      width: 100%;
+      height: 232px;
+      background: linear-gradient(179.79deg, #281717 0.18%, rgba(40, 23, 23, 0.51) 66.61%, rgba(40, 23, 23, 0) 99.82%);
+      z-index: 2;
     }
 
     &-man {
+      position: absolute;
+      left: 20px;
+      top: 0px;
       width: 80%;
     }
 
@@ -855,6 +898,31 @@ export default {
       top: 0px;
       width: 230px;
       cursor: pointer;
+      z-index: 3;
+    }
+
+    &-star1 {
+      position: absolute;
+      right: 34px;
+      top: 40px;
+      width: 40px;
+      z-index: 2;
+    }
+
+    &-star2 {
+      position: absolute;
+      right: 34px;
+      top: 180px;
+      width: 40px;
+      z-index: 2;
+    }
+
+    &-star3 {
+      position: absolute;
+      right: 184px;
+      top: 180px;
+      width: 40px;
+      z-index: 2;
     }
 
     &-exhi {
@@ -863,6 +931,7 @@ export default {
       top: 150px;
       width: 95px;
       transform: translateY(-20px);
+      z-index: 3;
     }
 
     &-box {
@@ -881,7 +950,7 @@ export default {
 
     &-intro2 {
       width: 80px;
-      margin: 10px 0px 0px 20px;
+      margin: 72px 0px 0px 0px;
       cursor: pointer;
     }
 
@@ -946,14 +1015,16 @@ export default {
   &-book {
     position: relative;
 
-    &-bg {
-      position: absolute;
-      width: 240px;
-    }
-
     &-title {
       width: calc(100% - 20px);
       margin: 0px 10px;
+    }
+
+    &-desc {
+      margin: 0px 35px 21px;
+      line-height: 1.5;
+      font-size: 13px;
+      color: white;
     }
 
     &-rotate {
@@ -1591,37 +1662,45 @@ export default {
   // footer
 
   &-footer {
-    padding: 23px 15px 46px;
+    padding: 25px 31px 10px;
     background-color: #E8E1D1;
 
-    &-box {
+    &-outer-box {
       display: flex;
       justify-content: space-between;
+      align-items: center;
+    }
+
+    &-box {
+
     }
 
     &-text {
-      margin: 0px 5px 11px;
-      line-height: 1.5;
+      margin: 0px 0px 11px;
       font-size: 12px;
       text-align: left;
       color: #4D4D4D;
     }
 
     &-social-box {
-      padding: 0px 10px;
+      display: flex;
+      flex-direction: column;
       text-align: left;
     }
 
     &-social {
-      height: 17px;
-      margin-right: 8px;
-      cursor: pointer;
+      height: 21px;
+      margin: 7px 0px;
     }
 
     &-copyright {
-      margin-top: 12px;
+      margin-top: 10px;
       font-size: 12px;
       color: #9B9B9B;
+    }
+
+    &-copyright-img {
+      width: calc(100% - 40px);
     }
   }
 
@@ -1631,7 +1710,9 @@ export default {
   &-side {
     position: fixed;
     bottom: 5vh;
-    right: 10px;
+    right: 15px;
+    transform: none;
+    z-index: 1;
 
     &-box {
       width: 110px;
@@ -1815,7 +1896,14 @@ export default {
         display: none;
       }
     }
+
+    &-side {
+      left: calc(50% + 110px);
+      transform: translateX(-50%);
+    }
   }
+
+  
 
 }
 

@@ -17,9 +17,12 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      // { hid: 'og:image' , property: 'og:image' , content: 'icon-single-logo.png'},
+      { hid: 'og:title'  , property: 'og:title'  , content: '小王子的藝想世界 75 周年特展'},
+      { hid: 'og:image' , property: 'og:image' , content: 'og-logo.jpg'},
       { hid: 'og:type' , property: 'og:type' , content: 'website'},
-      { hid: 'description', name: 'description', content: '邀請喜愛小王子的鐵粉以及新朋友們一同家人全新展覽體驗；不再只是「看」展覽，而是跟著小王子穿越75個年頭，回到相遇的原點，一起展開星球旅行！請戴上登機手環與準備好一台互動的智慧型手機，即將於12.29～2022.4.6，在台北華山1914文創園區西一西二館啟程出發！' }
+      // { hid: 'og:url' , property: 'og:url' , content: ''},
+      { hid: 'description', name: 'description', content: '尋找 找到你心中的小王子" All grown-ups were children first. (But few of them remember it.) "問題不在於長大，在於你忘了自己曾是個小孩。' },
+      { hid: 'og:description' , property: 'og:description' , content: '尋找 找到你心中的小王子" All grown-ups were children first. (But few of them remember it.) "問題不在於長大，在於你忘了自己曾是個小孩。。'},
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: 'favicon.ico' }
