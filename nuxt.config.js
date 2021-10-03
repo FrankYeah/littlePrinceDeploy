@@ -17,10 +17,12 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' }
+      // { hid: 'og:image' , property: 'og:image' , content: 'icon-single-logo.png'},
+      { hid: 'og:type' , property: 'og:type' , content: 'website'},
+      { hid: 'description', name: 'description', content: '邀請喜愛小王子的鐵粉以及新朋友們一同家人全新展覽體驗；不再只是「看」展覽，而是跟著小王子穿越75個年頭，回到相遇的原點，一起展開星球旅行！請戴上登機手環與準備好一台互動的智慧型手機，即將於12.29～2022.4.6，在台北華山1914文創園區西一西二館啟程出發！' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: 'favicon.ico' }
     ]
   },
   // SCSS 配置

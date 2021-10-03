@@ -75,12 +75,9 @@ export default {
     return {
       swiperOption: {
         slidesPerView: 1,
+        initialSlide: 1,
         spaceBetween: -50,
         lazy: true,
-        autoplay: {
-          delay: 2500,
-          disableOnInteraction: false,
-        },
         pagination: {
           el: '.swiper-pagination',
           clickable: true

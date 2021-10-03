@@ -109,7 +109,9 @@
               :key="`${index}art`"
               class="index-art-slide"
             >
-              <img class="index-art-artist" v-lazy="require(`@/assets/img/index/artist${artist.art}.png`)" alt="artist1">
+              <router-link :to="'/art'">
+                <img class="index-art-artist" v-lazy="require(`@/assets/img/index/artist${artist.art}.png`)" alt="artist1">
+              </router-link>
             </swiper-slide>
           </swiper>
         </div>
@@ -177,13 +179,15 @@
               <img class="index-chapter-gallery-img" v-lazy="require(`@/assets/img/index/plaza${plaza.img}.jpg`)" alt="intro">
             </swiper-slide>
           </swiper>
+          <div class="index-chapter-gallery-page">
+            <div :class="['index-chapter-gallery-page-dot', {'index-chapter-gallery-page-select': plazas[index].selected}]"
+             v-for="(plaza, index) in plazas"
+             :key="index"
+             @click="selectGallery(index)"
+            ></div>
+          </div>
           
         </div>
-
-        <div class="index-chapter-snack-box">
-          <img class="index-chapter-snack" v-lazy="require('@/assets/img/index/ticket-snack.png')" alt="snack">
-        </div>
-
       </boxContent>
 
     </div>
@@ -242,10 +246,14 @@
             <a href="https://www.kkday.com/zh-tw/product/123126" target="_blank">
               <img class="index-ticket-place" v-lazy="require('@/assets/img/index/outsell-kkday.png')" alt="kkday">
             </a>
+            
+            <a href="" target="_blank">
+              <img class="index-ticket-place" v-lazy="require('@/assets/img/index/outsell-book.png')" alt="kkday">
+            </a>
           </div>
           <div class="index-ticket-place-right">
-            <a href="https://tickets.books.com.tw/progshow/08010201555203" target="_blank">
-              <img class="index-ticket-place" v-lazy="require('@/assets/img/index/outsell-book.png')" alt="book">
+            <a href="" target="_blank">
+              <img class="index-ticket-place" v-lazy="require('@/assets/img/index/outsell-pchome-travel.png')" alt="book">
             </a>
             <a href="" target="_blank">
               <img class="index-ticket-place" v-lazy="require('@/assets/img/index/outsell-pchome.png')" alt="pchome">
@@ -349,9 +357,9 @@
 
     <div class="index-side">
       <div class="index-side-box" v-lazy:background-image="require('@/assets/img/index/fix-ticket.png')">
-        <div class="index-side-text">
-          {{ runtime }}<br>
-          早鳥特惠<span style="font-style: italic;">!</span>
+        <div v-html="runtime" class="index-side-text">
+          <br>
+          
         </div>
       </div>
     </div>
@@ -395,20 +403,17 @@ export default {
       },
       swiperOptionArt: {
         slidesPerView: 1,
+        initialSlide: 1,
         spaceBetween: -168,
         lazy: true,
-        autoplay: {
-          delay: 2500,
-          disableOnInteraction: false,
-        },
         pagination: {
           el: '.swiper-pagination',
           clickable: true
         }
       },
       swiperOptionGallery: {
-        slidesPerView: 2,
-        spaceBetween: 0,
+        slidesPerView: 1,
+        spaceBetween: 30,
         lazy: true,
         autoplay: {
           delay: 2500,
@@ -419,10 +424,11 @@ export default {
           clickable: true
         }
       },
+      tempGallery: null,
       plazas: [
-        { img: 1 },
-        { img: 2 },
-        { img: 3 }
+        { img: 1, selected: true },
+        { img: 2, selected: false },
+        { img: 3, selected: false }
       ],
       isSelectMark: {
         one: false,
@@ -594,10 +600,12 @@ export default {
     //   max: 25,
 		//   speed: 400
     // });
+    this.tempGallery = this.mySwiperGallery
+    console.log(this.mySwiperGallery)
     
   },
   computed: {
-    // swiper () { return this.$refs.mySwiper.$swiper },
+    mySwiperGallery () { return this.$refs.mySwiperGallery.$swiper },
   },
   methods: {
     scrollEvent (id) {
@@ -607,23 +615,22 @@ export default {
     },
     getRunTime () {
       // 作法：https://blog.csdn.net/sinat_34104446/article/details/81259483
-      let setTime = new Date("2021/10/15 20:15:00")
+      let setTime = new Date("2021/10/4 20:15:00")
       let nowTime = new Date()
 
       let restSec = setTime.getTime() - nowTime.getTime()
 
-      // let day = parseInt(restSec / (60*60*24*1000))
-      // let hour = parseInt(restSec / (60*60*1000) % 24)
-      let hour = parseInt(restSec / (60*60*1000))
+      let day = parseInt(restSec / (60*60*24*1000))
+      let hour = parseInt(restSec / (60*60*1000) % 24)
       let minu = parseInt(restSec / (60*1000) % 60)
       let sec = parseInt(restSec / 1000 % 60)
 
       this.runtime = ''
 
       if(hour < 10) {
-        this.runtime =　'0' + hour + ':'
+        this.runtime =　day + '天<br>' + '0' + hour + ':'
       } else {
-        this.runtime = hour + ':'
+        this.runtime = day + '天<br>' + hour + ':'
       }
       if(minu < 10) {
         this.runtime =　this.runtime + '0' + minu + ':'
@@ -631,9 +638,9 @@ export default {
         this.runtime = this.runtime + minu + ':'
       }
       if(sec < 10) {
-        this.runtime =　this.runtime + '0' + sec
+        this.runtime =　this.runtime + '0' + sec + '<br>限時早鳥'
       } else {
-        this.runtime = this.runtime + sec
+        this.runtime = this.runtime + sec + '<br>限時早鳥'
       }
 
       
@@ -668,10 +675,20 @@ export default {
       this.isSelectMark.four = false
       this.isSelectMark.five = false
       this.isSelectMark.six = false
+    },
+    selectGallery(index) {
+      this.mySwiperGallery.slideTo(index)
     }
   },
   watch: {
-    
+    'tempGallery.activeIndex': {
+      handler: function(index) {
+        this.plazas[0].selected = false
+        this.plazas[1].selected = false
+        this.plazas[2].selected = false
+        this.plazas[index].selected = true
+      },
+    }
   }
 }
 </script>
@@ -1125,6 +1142,7 @@ export default {
   &-chapter {
     position: relative;
     background-color: #F5EDDC;
+    padding-bottom: 66px;
 
     &-head-box {
       width: calc(100% - 11px);
@@ -1169,7 +1187,7 @@ export default {
 
     &-box {
       width: calc(100% - 62px);
-      // margin: 0px 11px;
+      margin: auto;
       padding: 12px 20px;
       background: #FFFFFF;
       border-radius: 11px;
@@ -1196,7 +1214,7 @@ export default {
     }
 
     &-gallery {
-      padding: 20px 0px;
+      padding: 14px 0px 8px;
       background-color: black;
 
       &-swiper {
@@ -1204,18 +1222,30 @@ export default {
       }
 
       &-img {
-        width: 94%;
-        margin: 0px 13px;
+        width: calc(100% - 18px);
+        margin: 0px 9px;
+      }
+
+      &-page {
+        display: flex;
+        justify-content: center;
+        margin-top: 15px;
+      }
+
+      &-page-dot {
+        width: 5px;
+        height: 5px;
+        margin: 0px 1.5px;
+        border-radius: 100%;
+        background-color: #9A9A9A;
+        cursor: pointer;
+      }
+
+      &-page-select {
+        background-color: white;
       }
     }
 
-    &-snack-box {
-      padding: 9px 0px 34px;
-    }
-
-    &-snack {
-      width: 80px;
-    }
   }
 
 
@@ -1278,7 +1308,7 @@ export default {
 
     &-airplane {
       position: absolute;
-      top: -100px;
+      top: -68px;
       right: 0px;
       width: 180px;
     }
@@ -1394,7 +1424,7 @@ export default {
     // 平台
 
     &-hint {
-      margin: 38px 0px 15px;
+      margin: 38px 0px 23px;
       text-align: center;
       color: #674F4F;
       font-size: 15px;
@@ -1402,18 +1432,19 @@ export default {
 
     &-place-left {
       display: flex;
-      margin-left: 13px;
+      justify-content: center;
     }
 
     &-place-right {
       padding-bottom: 257px;
       display: flex;
-      justify-content: flex-end;
-      margin: 5px 13px 0px 0px;
+      justify-content: center;
+      margin: 15px 0px 0px;
     }
 
     &-place {
-      width: 120px;
+      max-width: 100px;
+      width: 100%;
       margin: 0px 5px;
       cursor: pointer;
     }
@@ -1599,12 +1630,12 @@ export default {
 
   &-side {
     position: fixed;
-    bottom: 10vh;
+    bottom: 5vh;
     right: 10px;
 
     &-box {
-      width: 90px;
-      height: 80px;
+      width: 110px;
+      height: 100px;
       background-size: cover;
       background-position-x: center;
       background-position-y: center;
@@ -1612,7 +1643,7 @@ export default {
     }
 
     &-text {
-      padding: 44px 3px 0px 0px;
+      padding: 49px 3px 0px 0px;
       line-height: 1.3;
       color: #564242;
       font-size: 12px;
