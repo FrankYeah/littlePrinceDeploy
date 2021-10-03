@@ -27,12 +27,19 @@
       <boxContent class="index-prince" v-lazy:background-image="require('@/assets/img/index/prince-star.png')">
         
         <div class="index-prince-man-box">
-          <img class="index-prince-moon" v-lazy="require('@/assets/img/index/prince-moon.png')" alt="moon">
+          <img class="index-prince-moon"
+            v-lazy="require('@/assets/img/index/prince-moon.png')" alt="moon"
+          >
         </div>
         
         
         <div class="index-prince-bg"></div>
-        <img class="index-prince-man" v-lazy="require('@/assets/img/index/prince-bird.png')" alt="bird">
+        <img class="wow animate__fadeInTopLeft index-prince-man"
+          data-wow-duration="4.5s"
+          data-wow-delay="0s"
+          data-wow-iteration="1"
+          v-lazy="require('@/assets/img/index/prince-bird.png')" alt="bird"
+        >
         <img class="index-prince-title" v-lazy="require('@/assets/img/index/title-anniversary.png')" alt="anniversary">
         <img class="index-prince-star1" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
         <img class="index-prince-star2" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
@@ -112,8 +119,10 @@
       <boxContent class="index-art">
         <div class="index-art-head-box">
           <img class="index-art-head" v-lazy="require('@/assets/img/index/title-artist.png')" alt="artist">
-          <img class="index-art-intro"
-            data-aos="fade-left" data-aos-delay="1200" data-aos-duration="800" data-aos-easing="ease-in-sine"
+          <img class="wow animate__flipInX index-art-intro"
+            data-wow-duration="1.5s"
+            data-wow-delay="0s"
+            data-wow-iteration="1"
             v-lazy="require('@/assets/img/index/art-intro.png')" alt="intro"
           >
         </div>
@@ -221,13 +230,17 @@
 
     <!-- 購票資訊 -->
       <boxContent class="index-ticket">
-        <img class="index-ticket-title"
-          data-aos="fade-right" data-aos-delay="1200" data-aos-duration="800" data-aos-easing="ease-in-sine"
+        <img class="wow animate__fadeInLeft index-ticket-title"
+          data-wow-duration="1.5s"
+          data-wow-delay="0s"
+          data-wow-iteration="1"
           v-lazy="require('@/assets/img/index/title-buy.png')" alt="info"
         >
-        <img
-          data-aos="fade-down-left" data-aos-delay="1200" data-aos-duration="800" data-aos-easing="ease-in-sine"
-          class="index-ticket-airplane" v-lazy="require('@/assets/img/index/ticket-airplane.png')" alt="airplane"
+        <img class="wow animate__zoomInDown index-ticket-airplane"
+          data-wow-duration="1.5s"
+          data-wow-delay="0s"
+          data-wow-iteration="1"
+          v-lazy="require('@/assets/img/index/ticket-airplane.png')" alt="airplane"
         >
         <div class="index-ticket-sub">
           購票須知：<br>
@@ -303,7 +316,7 @@
       <!-- 小王子商店 -->
       <boxContent class="index-store">
         <img class="index-store-tree"
-          data-aos="fade-in" data-aos-delay="1200" data-aos-duration="800" data-aos-easing="ease-in-sine"
+          data-aos="fade-in" data-aos-delay="800" data-aos-duration="800" data-aos-easing="ease-in-sine"
           v-lazy="require('@/assets/img/index/store-tree.png')" alt="tree"
           >
         <img class="index-store-title" v-lazy="require('@/assets/img/index/title-store.png')" alt="store">
@@ -382,7 +395,7 @@
     <!-- sidebar -->
 
     <div class="index-side">
-      <div class="index-side-box" v-lazy:background-image="require('@/assets/img/index/fix-ticket.png')">
+      <div class="index-side-box">
         <div v-html="runtime" class="index-side-text">
           <br>
           
@@ -396,6 +409,10 @@
 </template>
 
 <script>
+
+if (process.browser) { // Here we introduce... According to the environment wow.js
+  var {WOW} = require('wowjs')
+}
 
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 import AOS from 'aos'
@@ -418,6 +435,7 @@ export default {
   data () {
     return {
       runtime: '',
+      screenWidth: null,
       swiperOptionBook: {
         slidesPerView: 1,
         spaceBetween: 0,
@@ -619,16 +637,25 @@ export default {
     // aos
     AOS.init()
 
-    // tilt
-    // https://micku7zu.github.io/vanilla-tilt.js/
-    // const element = document.querySelector(".js-tilt");
-    // VanillaTilt.init(element, {
-    //   max: 25,
-		//   speed: 400
-    // });
+    this.screenWidth  = window.screen.width
+
+    // wow
+    this.$nextTick(() => {
+      if (process.browser) { // On the page mounted In the life cycle Instantiate according to the environment WOW
+        new WOW({
+          boxClass: 'wow', // 欲套用wow.js的class
+          animateClass: 'animated', // 欲修改設定animat.css 的類別名稱
+          offset: 0, // 當用戶滾動並到達這個距離時才開始執行動畫
+          mobile: true, // 是否在行動裝置上執行動畫
+          live: false, // 非同步產生的內容是否要套用
+          callback: null,
+          scrollContainer: null
+        }).init()
+      }
+    })
+
+    // 輪播
     this.tempGallery = this.mySwiperGallery
-    console.log(this.mySwiperGallery)
-    
   },
   computed: {
     mySwiperGallery () { return this.$refs.mySwiperGallery.$swiper },
@@ -720,6 +747,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+@keyframes keepRotate{
+    0%   { transform: rotate(0deg); }
+    50%   { transform: rotate(360deg); }
+    100%   { transform: rotate(720deg); }
+}
 
 .index {
 
@@ -872,7 +905,9 @@ export default {
     }
 
     &-moon {
+      // https://www.oxxostudio.tw/articles/201803/css-animation.html
       width: 50%;
+      animation: keepRotate 40s linear infinite;
     }
 
     &-bg {
@@ -1381,7 +1416,7 @@ export default {
       position: absolute;
       top: -68px;
       right: 0px;
-      width: 180px;
+      width: 160px;
     }
 
     &-sub {
@@ -1710,9 +1745,10 @@ export default {
   &-side {
     position: fixed;
     bottom: 5vh;
-    right: 15px;
-    transform: none;
-    z-index: 1;
+    right: 0px;
+    z-index: 2;
+    // left: calc(100vw - 107px);
+    // transform: none;
 
     &-box {
       width: 110px;
@@ -1721,6 +1757,7 @@ export default {
       background-position-x: center;
       background-position-y: center;
       background-repeat: no-repeat;
+      background-image: url('../assets/img/index/fix-ticket.png');
     }
 
     &-text {
@@ -1898,8 +1935,8 @@ export default {
     }
 
     &-side {
-      left: calc(50% + 110px);
-      transform: translateX(-50%);
+      // left: calc(50% + 110px);
+      // transform: translateX(-50%);
     }
   }
 
@@ -1910,7 +1947,9 @@ export default {
 @media( max-width: 375px ){
 
   // 全關
+  .index {
 
+  }
 }
 
 </style>
