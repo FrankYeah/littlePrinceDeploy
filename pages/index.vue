@@ -27,9 +27,10 @@
       <boxContent class="index-prince" v-lazy:background-image="require('@/assets/img/index/prince-star.png')">
         
         <div class="index-prince-man-box">
-          <img class="index-prince-moon"
+          <div class="index-prince-moon"></div>
+          <!-- <img class="index-prince-moon"
             v-lazy="require('@/assets/img/index/prince-moon.png')" alt="moon"
-          >
+          > -->
         </div>
         
         
@@ -41,9 +42,24 @@
           v-lazy="require('@/assets/img/index/prince-bird.png')" alt="bird"
         >
         <img class="index-prince-title" v-lazy="require('@/assets/img/index/title-anniversary.png')" alt="anniversary">
-        <img class="index-prince-star1" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
-        <img class="index-prince-star2" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
-        <img class="index-prince-star3" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
+        <img class="wow animate__fadeIn index-prince-star1"
+          data-wow-duration="0.5s"
+          data-wow-delay="3.4s"
+          data-wow-iteration="1"
+          v-lazy="require('@/assets/img/desktop/star.png')" alt="star"
+        >
+        <img class="wow animate__fadeIn index-prince-star2"
+          data-wow-duration="0.5s"
+          data-wow-delay="3.7s"
+          data-wow-iteration="1"
+          v-lazy="require('@/assets/img/desktop/star.png')" alt="star"
+        >
+        <img class="wow animate__fadeIn index-prince-star3"
+          data-wow-duration="0.5s"
+          data-wow-delay="4s"
+          data-wow-iteration="1"
+          v-lazy="require('@/assets/img/desktop/star.png')" alt="star"
+        >
         <div>
           <img class="index-prince-exhi" v-lazy="require('@/assets/img/index/prince-exhibition.png')" alt="exhibition">
         </div>
@@ -282,15 +298,15 @@
               <img class="index-ticket-place" v-lazy="require('@/assets/img/index/outsell-kkday.png')" alt="kkday">
             </a>
             
-            <a href="" target="_blank">
+            <a href="https://tickets.books.com.tw/progshow/08010201555203" target="_blank">
               <img class="index-ticket-place" v-lazy="require('@/assets/img/index/outsell-book.png')" alt="kkday">
             </a>
           </div>
           <div class="index-ticket-place-right">
-            <a href="" target="_blank">
+            <a href="https://www.pchometravel.com/ticket/V921007202109250005/the-fantasy-world-of-le-petit-prince" target="_blank">
               <img class="index-ticket-place" v-lazy="require('@/assets/img/index/outsell-pchome-travel.png')" alt="book">
             </a>
-            <a href="" target="_blank">
+            <a href="https://24h.pchome.com.tw/prod/DXAP2E-A900BT8TH" target="_blank">
               <img class="index-ticket-place" v-lazy="require('@/assets/img/index/outsell-pchome.png')" alt="pchome">
             </a>
           </div>
@@ -900,13 +916,23 @@ export default {
     background-repeat: no-repeat;
 
     &-man-box {
+      display: flex;
+      justify-content: flex-end;
       text-align: right;
       padding: 232px 0px 50px;
     }
 
     &-moon {
       // https://www.oxxostudio.tw/articles/201803/css-animation.html
-      width: 50%;
+      width: 150px;
+      height: 150px;
+      border-radius: 100%;
+      background-image: url('../assets/img/index/prince-moon.png');
+      background-size: cover;
+      background-position-x: center;
+      background-position-y: center;
+      margin: 0px 0px 0px 0px;
+      background-repeat: no-repeat;
       animation: keepRotate 40s linear infinite;
     }
 
@@ -922,7 +948,7 @@ export default {
 
     &-man {
       position: absolute;
-      left: 20px;
+      left: 10px;
       top: 0px;
       width: 80%;
     }
@@ -1320,6 +1346,7 @@ export default {
     }
 
     &-gallery {
+      max-height: 245px;
       padding: 14px 0px 8px;
       background-color: black;
 
@@ -1944,10 +1971,49 @@ export default {
 
 }
 
-@media( max-width: 375px ){
+@media( max-width: 440px ){
 
   // 全關
   .index {
+
+    &-prince {
+
+      &-moon {
+        margin-right: 16px;
+      }
+    }
+
+  }
+}
+
+@media( max-width: 412px ){
+
+  // 全關
+  .index {
+
+    &-prince {
+
+      &-moon {
+        width: 130px;
+        height: 130px;
+        margin-right: 22px;
+      }
+    }
+
+  }
+}
+
+@media( max-width: 389px ){
+
+  // 全關
+  .index {
+
+    &-prince {
+
+      &-moon {
+        margin-right: 27px;
+      }
+    }
 
   }
 }
