@@ -43,21 +43,21 @@
         >
         <img class="index-prince-title" v-lazy="require('@/assets/img/index/title-anniversary.png')" alt="anniversary">
         <img class="wow animate__fadeIn index-prince-star1"
-          data-wow-duration="0.5s"
-          data-wow-delay="3.4s"
-          data-wow-iteration="1"
+          data-wow-duration="2.5s"
+          data-wow-delay="2.4s"
+          data-wow-iteration="infinite"
           v-lazy="require('@/assets/img/desktop/star.png')" alt="star"
         >
         <img class="wow animate__fadeIn index-prince-star2"
-          data-wow-duration="0.5s"
-          data-wow-delay="3.7s"
-          data-wow-iteration="1"
+          data-wow-duration="3.5s"
+          data-wow-delay="2.7s"
+          data-wow-iteration="infinite"
           v-lazy="require('@/assets/img/desktop/star.png')" alt="star"
         >
         <img class="wow animate__fadeIn index-prince-star3"
-          data-wow-duration="0.5s"
-          data-wow-delay="4s"
-          data-wow-iteration="1"
+          data-wow-duration="5.5s"
+          data-wow-delay="3s"
+          data-wow-iteration="infinite"
           v-lazy="require('@/assets/img/desktop/star.png')" alt="star"
         >
         <div>
@@ -101,18 +101,18 @@
         <!-- 缺文字 img -->
 
         <div class="index-book-rotate" v-lazy:background-image="require('@/assets/img/index/book-filp.png')">
-          <img @click="selectMark(1)" v-if="!isSelectMark.one" class="index-book-mark index-book-mark1" v-lazy="require('@/assets/img/index/bookmark1.png')" alt="bookmark">
-          <img v-else class="index-book-mark index-book-mark1" v-lazy="require('@/assets/img/index/bookmark1-select.png')" alt="bookmark">
-          <img @click="selectMark(2)" v-if="!isSelectMark.two" class="index-book-mark index-book-mark2" v-lazy="require('@/assets/img/index/bookmark2.png')" alt="bookmark">
-          <img v-else class="index-book-mark index-book-mark2" v-lazy="require('@/assets/img/index/bookmark2-select.png')" alt="bookmark">
-          <img @click="selectMark(3)" v-if="!isSelectMark.three" class="index-book-mark index-book-mark3" v-lazy="require('@/assets/img/index/bookmark3.png')" alt="bookmark">
-          <img v-else class="index-book-mark index-book-mark3" v-lazy="require('@/assets/img/index/bookmark3-select.png')" alt="bookmark">
-          <img @click="selectMark(4)" v-if="!isSelectMark.four" class="index-book-mark index-book-mark4" v-lazy="require('@/assets/img/index/bookmark4.png')" alt="bookmark">
-          <img v-else class="index-book-mark index-book-mark4" v-lazy="require('@/assets/img/index/bookmark4-select.png')" alt="bookmark">
-          <img @click="selectMark(5)" v-if="!isSelectMark.five" class="index-book-mark index-book-mark5" v-lazy="require('@/assets/img/index/bookmark5.png')" alt="bookmark">
-          <img v-else class="index-book-mark index-book-mark5" v-lazy="require('@/assets/img/index/bookmark5-select.png')" alt="bookmark">
-          <img @click="selectMark(6)" v-if="!isSelectMark.six" class="index-book-mark index-book-mark6" v-lazy="require('@/assets/img/index/bookmark6.png')" alt="bookmark">
-          <img v-else class="index-book-mark index-book-mark6" v-lazy="require('@/assets/img/index/bookmark6-select.png')" alt="bookmark">
+          <img @click="selectMark(1)" v-if="!isSelectMark.one" src="@/assets/img/index/bookmark1.png" class="index-book-mark index-book-mark1" alt="bookmark">
+          <img v-else class="index-book-mark index-book-mark1" src="@/assets/img/index/bookmark1-select.png" alt="bookmark">
+          <img @click="selectMark(2)" v-if="!isSelectMark.two" class="index-book-mark index-book-mark2" src="@/assets/img/index/bookmark2.png" alt="bookmark">
+          <img v-else class="index-book-mark index-book-mark2" src="@/assets/img/index/bookmark2-select.png" alt="bookmark">
+          <img @click="selectMark(3)" v-if="!isSelectMark.three" class="index-book-mark index-book-mark3" src="@/assets/img/index/bookmark3.png" alt="bookmark">
+          <img v-else class="index-book-mark index-book-mark3" src="@/assets/img/index/bookmark3-select.png" alt="bookmark">
+          <img @click="selectMark(4)" v-if="!isSelectMark.four" class="index-book-mark index-book-mark4" src="@/assets/img/index/bookmark4.png" alt="bookmark">
+          <img v-else class="index-book-mark index-book-mark4" src="@/assets/img/index/bookmark4-select.png" alt="bookmark">
+          <img @click="selectMark(5)" v-if="!isSelectMark.five" class="index-book-mark index-book-mark5" src="@/assets/img/index/bookmark5.png" alt="bookmark">
+          <img v-else class="index-book-mark index-book-mark5" src="@/assets/img/index/bookmark5-select.png" alt="bookmark">
+          <img @click="selectMark(6)" v-if="!isSelectMark.six" class="index-book-mark index-book-mark6" src="@/assets/img/index/bookmark6.png" alt="bookmark">
+          <img v-else class="index-book-mark index-book-mark6" src="@/assets/img/index/bookmark6-select.png" alt="bookmark">
           <!-- swiper -->
           <!-- 1.輪播特效
           2.輪播文字、圖片、上方文字更新
@@ -259,8 +259,12 @@
           v-lazy="require('@/assets/img/index/ticket-airplane.png')" alt="airplane"
         >
         <div class="index-ticket-sub">
-          購票須知：<br>
-          為能達成控管入場人流與最佳觀展品質，將於「開展前一個月」開訪提供參觀時段預約連結。於入場時配合防疫措施，完成實聯制並進行消毒雙手及測量體溫（現場將備有消毒酒精），並且記得參觀時應全程佩戴口罩喔！
+          欲前往「小王子的藝想世界」前，請特別留意以下事項：<br>
+          1. 同一筆訂單需一同登機，如須分開入場，請分開下訂。<br>
+          2. 請務必於展覽期間，逾期視同作廢，超過2022年4月6日後，小王子就會回去自己的星球囉！<br>
+          3. 這裡與合作通路各有不同的登機方式，請挑選最適合你的吧～<br><br>
+          為能達成控管入場人流與最佳觀展品質，將於「開展前一個月」開放提供參觀時段預約連結。於入場時配合防疫措施，完成實聯制並進行消毒雙手及測量體溫（現場將備有消毒酒精），並且記得參觀時應全程佩戴口罩喔！
+        
         </div>
         <img class="index-ticket-land" v-lazy="require('@/assets/img/index/ticket-land.png')" alt="airplane">
 
@@ -919,7 +923,7 @@ export default {
       display: flex;
       justify-content: flex-end;
       text-align: right;
-      padding: 232px 0px 50px;
+      padding: 232px 0px 90px;
     }
 
     &-moon {
@@ -1459,7 +1463,7 @@ export default {
 
     &-land {
       position: absolute;
-      top: 152px;
+      top: 300px;
       width: 100%;
     }
 
@@ -2016,6 +2020,24 @@ export default {
     }
 
   }
+}
+
+@media( max-width: 350px ){
+
+  .index {
+
+    &-ticket {
+
+      &-land {
+        top: 338px;
+      }
+
+      &-head-box {
+        margin: 10px 0px 0px;
+      }
+    }
+  }
+
 }
 
 </style>
