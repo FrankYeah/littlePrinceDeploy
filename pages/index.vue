@@ -114,15 +114,21 @@
           <img @click="selectMark(6)" v-if="!isSelectMark.six" class="index-book-mark index-book-mark6" src="@/assets/img/index/bookmark6.png" alt="bookmark">
           <img v-else class="index-book-mark index-book-mark6" src="@/assets/img/index/bookmark6-select.png" alt="bookmark">
           <!-- swiper -->
-          <!-- 1.輪播特效
-          2.輪播文字、圖片、上方文字更新
-          3.書籤切換頁碼 -->
           <swiper class="swiper index-book-swiper" :options="swiperOptionBook" ref="mySwiperBook">
-            <swiper-slide>
-              <div class="index-book-slide-box">
-                <img class="index-book-img" v-lazy="require('@/assets/img/index/title-prince.png')"  alt="prince">
-                <div class="index-book-head">The Little Prince</div>
-                <div class="index-book-text">六歲的安東尼畫了「一號作品」：蟒蛇吞食了一頭大象。大人們稱，那頂帽子畫得真好！於是「二號作品」的誕生，他畫了蟒蛇肚子裡的內視圖，但大人們看不懂。放棄畫家夢的安東尼成為飛行員，一日在沙哈拉沙漠遇到一場意外，遇見了個擁有稻黃色金髮的謎樣男孩，小王子。"</div>
+            <swiper-slide v-for="(book, index) in books"
+              :key="`${index}book`"
+            >
+              <div v-if="book.switch" class="index-book-slide-box">
+                <img class="index-book-img" v-lazy="require(`@/assets/img/index/bookImg${book.img}.png`)"  alt="prince">
+                <div class="index-book-head">{{ book.title }}</div>
+                <div v-html="book.text" class="index-book-text">"</div>
+                <img v-if="book.isTwo" @click="book.switch = false" class="index-book-btn" v-lazy="require(`@/assets/img/index/book-btn.png`)"  alt="btn">
+              </div>
+              <div v-else class="index-book-slide-box">
+                <img class="index-book-img" v-lazy="require(`@/assets/img/index/bookImg${book.img2}.png`)"  alt="prince">
+                <div class="index-book-head">{{ book.title2 }}</div>
+                <div v-html="book.text2" class="index-book-text">"</div>
+                <img @click="book.switch = true" class="index-book-btn" v-lazy="require(`@/assets/img/index/book-btn.png`)"  alt="btn">
               </div>
             </swiper-slide>
           </swiper>
@@ -152,12 +158,19 @@
             >
               <router-link :to="'/art'">
                 <img class="index-art-artist" v-lazy="require(`@/assets/img/index/artist${artist.art}.png`)" alt="artist1">
+                <div class="index-art-name">
+                  <div>{{ artist.name }}｜</div>
+                  <div class="index-art-title">{{ artist.title }}</div>
+                </div>
               </router-link>
             </swiper-slide>
           </swiper>
         </div>
         <div class="index-art-line"></div>
-        <img ref="exIntro" class="index-art-img" v-lazy="require('@/assets/img/index/intro-img.png')" alt="intro">
+        <img ref="exIntro" class="index-art-img"
+          data-aos="fade-in" data-aos-delay="700" data-aos-duration="800" data-aos-easing="ease-in-sine"
+          v-lazy="require('@/assets/img/index/intro-img.png')" alt="intro"
+        >
       </boxContent>
 
 
@@ -198,7 +211,7 @@
             >
           </div>
           <div v-show="isShowChapter[chapter.num]" class="index-chapter-box">
-            <img class="index-chapter-img" v-lazy="require('@/assets/img/index/intro-img.png')" alt="intro">
+            <img class="index-chapter-img" v-lazy="require(`@/assets/img/index/ch${index+1}.png`)" alt="intro">
             <div v-html="chapter.text" class="index-chapter-text"></div>
           </div>
           <div class="index-chapter-line"></div>
@@ -313,6 +326,9 @@
             <a href="https://24h.pchome.com.tw/prod/DXAP2E-A900BT8TH" target="_blank">
               <img class="index-ticket-place" v-lazy="require('@/assets/img/index/outsell-pchome.png')" alt="pchome">
             </a>
+            <a href="" target="_blank">
+              <img class="index-ticket-place" v-lazy="require('@/assets/img/index/outsell-klook.png')" alt="klook">
+            </a>
           </div>
           
         </div>
@@ -353,7 +369,7 @@
         <!--  -->
 
         <div class="index-store-go-box">
-          <div class="index-store-go" v-lazy:background-image="require('@/assets/img/index/outsell-store.png')">前往商店</div>
+          <div class="index-store-go">前往商店</div>
         </div>
         
         <img class="index-store-land" v-lazy="require('@/assets/img/index/sponsor-img.png')" alt="sponsor">
@@ -460,16 +476,25 @@ export default {
         slidesPerView: 1,
         spaceBetween: 0,
         lazy: true,
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true
-        }
+        effect: "coverflow",
+        grabCursor: true,
+        coverflowEffect: {
+          rotate: 100,
+          stretch: 0,
+          depth: 100,
+          modifier: 1,
+          slideShadows: true,
+        },
       },
       swiperOptionArt: {
         slidesPerView: 1,
         initialSlide: 1,
         spaceBetween: -138,
         lazy: true,
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+        },
         pagination: {
           el: '.swiper-pagination',
           clickable: true
@@ -488,14 +513,77 @@ export default {
           clickable: true
         }
       },
+      books: [
+        {
+          switch: true,
+          isTwo: false,
+          img: '1',
+          title: 'I. 遇見小王子',
+          text: '遇見小王子＃尋找<br>我會住在其中的一顆星星上面，在某一顆星星上微笑著，每當夜晚你仰望星空的時候，就會像是看到所有的星星都在微笑一般。<br>In one of the stars I shall be living. In one of them I shall be laughing. And so it will be as if all the stars were laughing, when you look at the sky at night… You – only you – will have stars that can laugh…',
+          img2: '',
+          title2: '',
+          text2: '',
+        },
+        {
+          switch: true,
+          isTwo: false,
+          img: '2',
+          title: 'II. 旅程的起點',
+          text: 'B612 唯一的玫瑰＃選擇<br>如果我想要和蝴蝶做朋友的話，就得要能忍受毛毛蟲。他們看上去都很美麗。<br>Well, I must endure the presence of two or three caterpillars if I wish to become acquainted with the butterflies. It seems that they are very beautiful.',
+          img2: '',
+          title2: '',
+          text2: '',
+        },
+        {
+          switch: true,
+          isTwo: true,
+          img: '3',
+          title: '國王與自負的人',
+          text: 'B325行星：國王＃探索<br>權威首先應當是合情合理的。如果你要求你的百姓去投海，他們就會起來革命。我之所以有權要求大家服從我，是因為我的命令都是合理的。<br>Accepted authority rests first of all on reason. If you ordered your people to go and throw themselves into the sea, they would rise up in revolution. I have the right to require obedience because my orders are reasonable.',
+          img2: '32',
+          title2: '國王與自負的人',
+          text2: 'B326行星：自負的人＃探索<br>崇拜就是你覺得我是這星球上最帥、穿得最漂亮，最有錢，也最聰明的人。<br>To admire mean that you regard me as the handsomet, the best-dressed, the richest, and the most intelligent men on this planet.',
+        },
+        {
+          switch: true,
+          isTwo: true,
+          img: '4',
+          title: '酒鬼與商人',
+          text: 'B327行星：酒鬼＃探索<br>我在喝酒。為了忘卻。忘卻我的羞愧。因為喝酒而羞愧！<br>I am drinking. So that I may forget. Forget that I am ashamed. Ashamed of drinking.',
+          img2: '42',
+          title2: '酒鬼與商人',
+          text2: 'B328行星：商人＃探索<br>小的金色的東西，那些讓懶人們遊手好閒做夢的東西。我呢，我就只關心正經事。我的生活裡根本沒有遊手好閒做夢的時間。<br>Little glittering objects that set lazy men to idle dreaming. As for me, I am concerned with matters of consequence. There is no time for idle dreaming in my life.',
+        },
+        {
+          switch: true,
+          isTwo: true,
+          img: '5',
+          title: '點燈人與地理學家',
+          text: 'B329行星：點燈人＃探索<br>我接手了一份苦差事。我在清晨熄滅路燈，晚上再把他點亮。白天可以休息，晚上就能睡覺。但現在這個星球一年比一年轉得快，而命令卻一點都沒變！I follow a terible profession. I put the lamp out in the morning, and in the evening I lighted it again. Then — the planet now makes a complete turn every minute, and I no longer have a single second for repose. Once every minute I have to light my lamp and put it out!',
+          img2: '52',
+          title2: '點燈人與地理學家',
+          text2: 'B330行星：地理學家＃探索<br>地理書，是所有的書裡最嚴肅的書，從來都不會過時。一座山基本不會變化他的位置，海洋也不會乾涸。我們寫的都是長久的事物。<br>Geographies, are the books which, of all books, are most concerned with matters of consequence. They never become old-fashioned. It is very quickly that a mountain changes its position. It is very rarely that an ocean empties itselfof its waters. We write of eternal things.',
+        },
+        {
+          switch: true,
+          isTwo: false,
+          img: '6',
+          title: '落日與星空',
+          text: '落日與星空＃道別<br>只有用心才能看清楚，真正重要的東西用眼睛是看不見的。<br>It is only with the heart that one can see rightly; what is essential is invisible to the eye.',
+          img2: '',
+          title2: '',
+          text2: '',
+        },
+      ],
       tempGallery: null,
+      tempBook: null,
       plazas: [
         { img: 1, selected: true },
         { img: 2, selected: false },
         { img: 3, selected: false }
       ],
       isSelectMark: {
-        one: false,
+        one: true,
         two: false,
         three: false,
         four: false,
@@ -503,10 +591,11 @@ export default {
         six: false,
       },
       artists:[
-        { art: 1 },
-        { art: 2 },
-        { art: 3 },
-        { art: 4 }
+        { art: 1, name: '呂志文', title: '藝術家' },
+        { art: 2, name: '張嘉穎', title: '藝術家'  },
+        { art: 3, name: '蔡景康', title: '藝術家'  },
+        { art: 4, name: '何佳樺', title: '音樂家'  },
+        { art: 5, name: '半隻羊立體書實驗室', title: '立體紙藝'  }
       ],
       isShowChapter: {
         one: true,
@@ -676,9 +765,11 @@ export default {
 
     // 輪播
     this.tempGallery = this.mySwiperGallery
+    this.tempBook = this.mySwiperBook
   },
   computed: {
     mySwiperGallery () { return this.$refs.mySwiperGallery.$swiper },
+    mySwiperBook () { return this.$refs.mySwiperBook.$swiper },
   },
   methods: {
     scrollEvent (id) {
@@ -720,6 +811,7 @@ export default {
     },
     selectMark (mark) {
       this.cleanMark()
+      this.mySwiperBook.slideTo(mark-1)
       switch (mark) {
         case 1:
           this.isSelectMark.one = true
@@ -760,6 +852,11 @@ export default {
         this.plazas[1].selected = false
         this.plazas[2].selected = false
         this.plazas[index].selected = true
+      },
+    },
+    'tempBook.activeIndex': {
+      handler: function(index) {
+        this.selectMark(index+1)
       },
     }
   }
@@ -888,7 +985,7 @@ export default {
 
     &-starR4 {
       position: absolute;
-      top: 60%;
+      top: 89%;
       right: 20%;
       width: 60px;
     }
@@ -1140,29 +1237,37 @@ export default {
     }
 
     &-slide-box {
-      width: 60%;
+      width: 70%;
+      text-align: center;
       margin: auto;
       color: #4D4D4D;
     }
 
     &-img {
-      width: 160px;
+      height: 108px;
+      margin-top: 18px;
     }
 
     &-head {
-      margin-top: 20px;
+      margin-top: 12px;
       font-size: 17px;
       text-align: center;
     }
 
     &-text {
-      margin-top: 10px;
+      margin-top: 16px;
       font-size: 13px;
       line-height: 1.5;
+      text-align: justify;
 
-      &::first-letter {
-        font-size: 20px;
-      }
+      // &::first-letter {
+      //   font-size: 20px;
+      // }
+    }
+
+    &-btn {
+      margin-top: 2px;
+      width: 26px;
     }
   }
 
@@ -1202,11 +1307,27 @@ export default {
     }
 
     &-slide {
+      width: 200px;
       text-align: center;
+      margin: auto;
     }
 
     &-artist {
       width: 200px;
+    }
+
+    &-name {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 8px;
+      font-size: 17px;
+      color: #FFFFFF;
+    }
+
+    &-title {
+      font-size: 14px;
+      color: #F5EEDC;
     }
 
     &-line {
@@ -1681,22 +1802,21 @@ export default {
 
     &-go-box {
       padding: 30px 0px 0px;
+
       margin-bottom: -10px;
     }
 
     &-go {
-      width: 112px;
-      height: 58px;
-      line-height: 4.7;
-      background-size: cover;
-      background-position-x: center;
-      background-position-y: center;
-      background-repeat: no-repeat;
+      width: 110px;
       margin: auto;
-      padding-right: 15px;
+      padding: 8px 0px;
       font-size: 15px;
       font-weight: bold;
-      color: #4A3620;
+      text-align: center;
+      background: #317ABE;
+      border: 2px solid #6DAD8F;
+      border-radius: 5px;
+      color: white;
       cursor: pointer;
     }
 
@@ -2034,6 +2154,17 @@ export default {
 
       &-head-box {
         margin: 10px 0px 0px;
+      }
+    }
+
+    &-book {
+
+      &-img {
+        height: 106px;
+      }
+      
+      &-slide-box {
+        width: 85%;
       }
     }
   }
