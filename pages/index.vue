@@ -221,7 +221,7 @@
         <div class="index-chapter-head-box">
           <div class="index-chapter-head-left">
             <img class="index-chapter-chapter" v-lazy="require('@/assets/img/index/chapter-gallery.png')" alt="intro">
-              <div class="index-chapter-title">展場實景</div>
+              <div class="index-chapter-title"></div>
           </div>
         </div>
         <div class="index-chapter-gallery">
@@ -289,11 +289,11 @@
           <div class="index-ticket-line"></div>
 
           <!-- 票種 -->
-          <div v-for="(ticket, index) in ticketInfo"
+          <div target="_blank" v-for="(ticket, index) in ticketInfo"
             :key="index"
             class="index-ticket-row-box"
           >
-            <div class="index-ticket-row">
+            <a :href="`${ticket.href}`" class="index-ticket-row">
               <div class="index-ticket-type" v-lazy:background-image="require('@/assets/img/index/ticket-post.png')">{{ ticket.type }}</div>
               <div class="index-ticket-desc">
                 <div v-if="ticket.money" class="index-ticket-desc-name">
@@ -302,7 +302,7 @@
                 </div>
                 <div v-html="ticket.text" class="index-ticket-desc-text"></div>
               </div>
-            </div>
+            </a>
             <div class="index-ticket-line"></div>
           </div>
 
@@ -657,12 +657,14 @@ export default {
       ],
       ticketInfo: [
         {
+          href: 'javascript:void(0);',
           type: '全票',
           paper: '元/張',
           money: '280',
-          text: `適用於一般身份成人。`,
+          text: `早鳥優惠期間 280 元/張（原價 350 元/張）<br>適用於一般身份成人。`,
         },
         {
+          href: 'javascript:void(0);',
           type: '親子票',
           paper: '元/2張',
           money: '500',
@@ -673,39 +675,7 @@ export default {
           `,
         },
         {
-          type: '學生票',
-          paper: '元/張',
-          money: '320',
-          text: `
-            ● 現場販售ONLY
-            1. 年齡6歲（含）以上小學～大專院校以下學生。<br>
-            2. 滿6歲尚未註冊入學之兒童，可出示身份證明文件，限購一張。<br>
-            3. 持本國籍大專以下有效學生證件之在學學生，以當學期註冊章為憑(網路查詢學籍證明恕不適用)。<br>
-            4. 兌換票券時，需出示身份證明文件、本人學生證正本以備查驗，每證限購一張。<br>
-            5. 碩博士、社區大學、空中大學及在職進修學生不適用。
-          `,
-        },
-        {
-          type: '特惠票',
-          paper: '元/張',
-          money: '175',
-          text: `
-            ● 現場販售ONLY
-            1. 65歲（含）以上年長者，須出示相關證明文件，限購一張。<br>
-            2. 4歲（含）～6歲未滿兒童，須出示相關證明文件及成人陪同，限購一張。<br>
-            3. 持本國籍身心障礙人士本人證明文件正本，必要陪同者（每證限一位）亦可購入特惠票，需同時入場。
-          `,
-        },
-        {
-          type: '免票',
-          paper: '元/張',
-          money: '',
-          text: `
-            1. 未滿4歲嬰幼兒免費入場，須一位成人（年滿20歲以上）持票陪同入場。<br>
-            2. 未帶證件，但身高超過115公分孩童仍須購買學生票入場。
-          `,
-        },
-        {
+          href: 'javascript:void(0);',
           type: '團體票',
           paper: '元/張',
           money: '300',
@@ -715,23 +685,25 @@ export default {
           `,
         },
         {
-          type: '聽見小王子公益票',
-          paper: '元/張',
-          money: '???',
+          href: 'mailto:service@weiyunchang.com',
+          type: '企業票',
+          paper: '',
+          money: '',
           text: `
-            1. USB商品內含展覽主題曲、故事人聲音<br>
-            2. 票價之＿％將捐贈兒福單位<br>
-            3. 商品皆為預購，商品將於展覽現場兌換，不提供開展前/後寄送服務。
+            1. 單次購買限定為50張（含）以上，請來信聯繫票務小組<br>
+            2. 可選擇同時入場或非同時入場，提供平日參觀時段預約<br>
+            3. 另提供 VIP CLUB 空間租借與活動辦理合作，歡迎來信洽詢需求
           `,
         },
         {
-          type: '小王子生日快樂票',
-          paper: '元/張',
-          money: '175',
+          href: 'mailto:service@weiyunchang.com',
+          type: '校園票',
+          paper: '',
+          money: '',
           text: `
-            1. 與6月29日（作者生日）出生可享有特惠票優惠，隨票至現場兌換生日票小禮包。<br>
-            2. 享有免排隊快速通關入場<br>
-            3. 兌換票券時需出示本人相關證明文件，未攜帶本人證件需補足票價差額。
+            1. 單次購買限定為50張（含）以上，請來信聯繫票務小組<br>
+            2. 可選擇同時入場或非同時入場，提供平日參觀時段預約<br>
+            3. 另提供 VIP CLUB 空間租借與活動辦理合作，歡迎來信洽詢需求
           `,
         },
       ]
@@ -1049,7 +1021,7 @@ export default {
 
     &-man {
       position: absolute;
-      left: 10px;
+      left: 24px;
       top: 0px;
       width: 80%;
     }
@@ -1645,7 +1617,6 @@ export default {
     &-row {
       display: flex;
       color: #674F4F;
-
     }
 
     &-type {
@@ -1923,6 +1894,32 @@ export default {
 }
 
 @media( max-width: 1023px ){
+
+  .index {
+
+    &-prince {
+
+      &-bt-sheep {
+        top: 17%;
+        left: 16%;
+      }
+
+
+      &-bt-starR4 {
+        right: 10%;
+      }
+
+      &-bt-starR6 {
+        top: 94%;
+        right: 8%;
+      }
+    }
+    
+  }
+
+}
+
+@media( max-width: 830px ){
 
   // 部分關
 
