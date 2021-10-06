@@ -397,8 +397,9 @@
           <div class="index-footer-outer-box">
             <div class="index-footer-box">
               <div>
-                <div class="index-footer-text">主辦單位｜為美學有限公司</div>
-                <div class="index-footer-text">協同策展｜群眾自造股份有限公司</div>
+                <div class="index-footer-text">總策展方｜為美學有限公司</div>
+                <div class="index-footer-text">協同策展｜不難設計藝術有限公司</div>
+                <div class="index-footer-text">展覽協力｜群眾自造股份有限公司</div>
                 <div class="index-footer-text">授權單位｜薩摩亞商羚邦亞洲有限公司</div>
               </div>
               <div>
@@ -1837,7 +1838,7 @@ export default {
     &-title {
       padding: 80px 0px 30px;
       font-size: 16px;
-      color: #4d4d4d;
+      color: #4A3620;
       text-align: center;
     }
 
