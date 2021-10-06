@@ -148,6 +148,7 @@
             v-lazy="require('@/assets/img/index/art-intro.png')" alt="intro"
           >
         </div>
+        <div class="index-art-pre">《經典小王子 X 跨界合作 X 劇場式展覽》</div>
         <div class="index-art-text">邀集國內外藝術家以全新視角詮釋，從視覺藝術到驚喜引導的故事人聲、量身定做的展場原聲音樂環繞，透過奇幻氛圍的劇場空間與沈浸式互動投影聯手，和小王子一起來趟暖心療癒的星球旅行吧！</div>
         <div class="index-art-rotate">
           <!-- 等上面完成，一次做輪播 -->
@@ -284,7 +285,7 @@
         <div class="index-ticket-box">
           <div class="index-ticket-head-box">
             <img class="index-ticket-head-fox" v-lazy="require('@/assets/img/index/ticket-fox.png')" alt="airplane">
-            <div class="index-ticket-head">基本票</div>
+            <div class="index-ticket-head">早鳥優惠</div>
           </div>
           <div class="index-ticket-line"></div>
 
@@ -595,7 +596,7 @@ export default {
         { art: 2, name: '張嘉穎', title: '藝術家'  },
         { art: 3, name: '蔡景康', title: '藝術家'  },
         { art: 4, name: '何佳樺', title: '音樂家'  },
-        { art: 5, name: '半隻羊立體書實驗室', title: '立體紙藝'  }
+        // { art: 5, name: '半隻羊立體書實驗室', title: '立體紙藝'  }
       ],
       isShowChapter: {
         one: true,
@@ -661,15 +662,14 @@ export default {
           type: '全票',
           paper: '元/張',
           money: '280',
-          text: `早鳥優惠期間 280 元/張（原價 350 元/張）<br>適用於一般身份成人。`,
+          text: `早鳥優惠（原價 350 元/張）<br>適用於一般身份成人。`,
         },
         {
           href: 'javascript:void(0);',
           type: '親子票',
-          paper: '元/2張',
+          paper: '元/1張全票＋1張國小以下兒童票',
           money: '500',
           text: `
-            ● 1張全票＋1張國小以下兒童票<br>
             1. 適用於一位成人、陪伴一位4歲（含）～12歲（含）以下國小生。<br>
             2. 使用親子票時，需同時入場，並出示有效身份證明文件。*提醒：現場未帶證件需補足「學生票」差額（即全票＋學生票=670元）
           `,
@@ -1262,6 +1262,15 @@ export default {
       width: 28%;
     }
 
+    &-pre {
+      margin: 17px 0px;
+      letter-spacing: 0.8px;
+      font-size: 14px;
+      font-weight: bold;
+      text-align: center;
+      color: white;
+    }
+
     &-text {
       margin: 17px 28px;
       line-height: 1.4;
@@ -1639,6 +1648,7 @@ export default {
     &-desc-name {
       font-size: 14px;
       margin-bottom: 5px;
+      line-height: 1.2;
     }
 
     &-desc-name-big {
