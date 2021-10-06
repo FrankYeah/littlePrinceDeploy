@@ -351,7 +351,7 @@
 
       <!-- 小王子商店 -->
       <boxContent class="index-store">
-        <img class="index-store-tree"
+        <!-- <img class="index-store-tree"
           data-aos="fade-in" data-aos-delay="800" data-aos-duration="800" data-aos-easing="ease-in-sine"
           v-lazy="require('@/assets/img/index/store-tree.png')" alt="tree"
           >
@@ -362,15 +362,15 @@
           <div class="index-store-tab">tab02</div>
           <div class="index-store-tab">tab03</div>
           <div class="index-store-tab">tab04</div>
-        </div>
+        </div> -->
 
         <!-- 輪播 -->
 
         <!--  -->
 
-        <div class="index-store-go-box">
+        <!-- <div class="index-store-go-box">
           <div class="index-store-go">前往商店</div>
-        </div>
+        </div> -->
         
         <img class="index-store-land" v-lazy="require('@/assets/img/index/sponsor-img.png')" alt="sponsor">
 
@@ -430,7 +430,7 @@
 
     <!-- sidebar -->
 
-    <div class="index-side">
+    <div @click="scrollEvent('ticketInfo')" class="index-side">
       <div class="index-side-box">
         <div v-html="runtime" class="index-side-text">
           <br>
@@ -751,7 +751,7 @@ export default {
     },
     getRunTime () {
       // 作法：https://blog.csdn.net/sinat_34104446/article/details/81259483
-      let setTime = new Date("2021/10/4 20:15:00")
+      let setTime = new Date("2021/11/1 00:00:00")
       let nowTime = new Date()
 
       let restSec = setTime.getTime() - nowTime.getTime()
@@ -1665,7 +1665,7 @@ export default {
     }
 
     &-place-right {
-      padding-bottom: 257px;
+      // padding-bottom: 257px;
       display: flex;
       justify-content: center;
       margin: 15px 0px 0px;
@@ -1710,7 +1710,8 @@ export default {
     &-elephant {
       position: absolute;
       left: 0%;
-      top: 50%;
+      top: 24%;
+      // top: 50%;
       width: 15%;
     }
 
@@ -1746,6 +1747,7 @@ export default {
   &-store {
     position: relative;
     text-align: center;
+    background-color: white;
 
     &-tree {
       position: absolute;
@@ -1868,9 +1870,14 @@ export default {
     position: fixed;
     bottom: 5vh;
     right: 0px;
+    cursor: pointer;
     z-index: 2;
     // left: calc(100vw - 107px);
     // transform: none;
+
+    &:hover {
+      opacity: 0.8;
+    }
 
     &-box {
       width: 110px;
