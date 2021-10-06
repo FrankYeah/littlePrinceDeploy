@@ -76,9 +76,9 @@ export default {
   },
   data () {
     return {
+      currentRoute: null,
       swiperOption: {
         slidesPerView: 1,
-        initialSlide: 1,
         spaceBetween: -50,
         lazy: true,
         pagination: {
@@ -154,6 +154,16 @@ export default {
     // aos
     AOS.init()
 
+    // 路徑處理
+
+    setTimeout(() => {
+
+      this.swiper.slideTo(this.$route.query.slide)
+    }, 500)
+    
+
+
+
     // tilt
     // https://micku7zu.github.io/vanilla-tilt.js/
     // const element = document.querySelector(".js-tilt");
@@ -164,7 +174,7 @@ export default {
     
   },
   computed: {
-    // swiper () { return this.$refs.mySwiper.$swiper },
+    swiper () { return this.$refs.mySwiper.$swiper },
   },
   methods: {
     scrollText(index) {

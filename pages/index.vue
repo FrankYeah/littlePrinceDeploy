@@ -66,9 +66,7 @@
 
         <div class="index-prince-box">
           <img @click="scrollEvent('ticketInfo')" class="index-prince-intro1" v-lazy="require('@/assets/img/index/star-ticket.png')" alt="ticket">
-          <router-link :to="'/art'">
-            <img class="index-prince-intro2" v-lazy="require('@/assets/img/index/star-art.png')" alt="art">
-          </router-link>
+          <img @click="scrollEvent('artIntro')" class="index-prince-intro2" v-lazy="require('@/assets/img/index/star-art.png')" alt="art">
         </div>
         <img @click="scrollEvent('exIntro')" class="index-prince-intro3" v-lazy="require('@/assets/img/index/star-exhibition.png')" alt="exhibition">
       </boxContent>
@@ -139,7 +137,7 @@
 
       <!-- 藝術家介紹 -->
       <boxContent class="index-art">
-        <div class="index-art-head-box">
+        <div ref="artIntro" class="index-art-head-box">
           <img class="index-art-head" v-lazy="require('@/assets/img/index/title-artist.png')" alt="artist">
           <img class="wow animate__flipInX index-art-intro"
             data-wow-duration="1.5s"
@@ -157,7 +155,7 @@
               :key="`${index}art`"
               class="index-art-slide"
             >
-              <router-link :to="'/art'">
+              <router-link :to="`/art?slide=${index}`">
                 <img class="index-art-artist" v-lazy="require(`@/assets/img/index/artist${artist.art}.png`)" alt="artist1">
                 <div class="index-art-name">
                   <div>{{ artist.name }}｜</div>
