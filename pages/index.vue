@@ -406,6 +406,7 @@
                 <div class="index-footer-text">行銷團隊｜大宇宙情報股份有限公司</div>
                 <div class="index-footer-text">行銷顧問｜貝殼放大股份有限公司</div>
                 <div class="index-footer-text">商品開發｜可蘿國際股份有限公司</div>
+                <div class="index-footer-text">聲音指導｜陳威宇</div>
               </div>
             </div>
 
@@ -1103,6 +1104,7 @@ export default {
 
     &-intro2 {
       width: 80px;
+      height: 84px;
       margin: 72px 0px 0px 0px;
       cursor: pointer;
     }
