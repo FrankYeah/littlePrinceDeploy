@@ -380,7 +380,13 @@
           <div class="index-sponsor-title">協力單位</div>
 
           <div class="index-sponsor-rotate">
-            <!-- 輪播 -->輪播
+            <!-- 輪播 -->
+            <swiper class="swiper index-sponsor-swiper" :options="swiperOptionSponsor" ref="mySwiperSponsor">
+              <swiper-slide v-for="(sponsor, index) in sponsorData" :key="`${index}sponsor`">
+                <img class="index-sponsor-img" v-lazy="require(`@/assets/img/index/sponsor${sponsor.img}.png`)" alt="sponsor">
+              </swiper-slide>
+            </swiper>
+
           </div>
         </div>
       
@@ -507,6 +513,15 @@ export default {
           delay: 2500,
           disableOnInteraction: false,
         },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true
+        }
+      },
+      swiperOptionSponsor: {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        lazy: true,
         pagination: {
           el: '.swiper-pagination',
           clickable: true
@@ -646,7 +661,7 @@ export default {
         {
           num: 'five',
           title: 'ROSE GARDEN｜玫瑰花園',
-          tag: '＃追尋',
+          tag: '＃尋找',
           img: '',
           text: `
             小王子決定回到他的星球，留在地球上的我們是不是也找到自己的那一顆星了呢？<br>
@@ -704,6 +719,11 @@ export default {
             3. 另提供 VIP CLUB 空間租借與活動辦理合作，歡迎來信洽詢需求
           `,
         },
+      ],
+      sponsorData: [
+        { img: '1' },
+        { img: '2' },
+        { img: '3' },
       ]
     }
   },
@@ -1815,14 +1835,20 @@ export default {
     background-color: white;
 
     &-title {
-      padding: 80px 0px;
+      padding: 80px 0px 30px;
       font-size: 16px;
       color: #4d4d4d;
       text-align: center;
     }
 
     &-rotate {
+      width: 300px;
+      margin: auto;
       padding: 0px 0px 40px;
+    }
+
+    &-img {
+      width: 80px;
     }
   }
 
