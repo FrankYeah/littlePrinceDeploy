@@ -7,9 +7,8 @@
       <img class="art-star4" src="@/assets/img/common/star.png" alt="star">
       <img class="art-star5" src="@/assets/img/common/star.png" alt="star">
       <img class="art-star6" src="@/assets/img/common/star.png" alt="star">
-      <img class="art-star7" src="@/assets/img/common/star.png" alt="seven">
-      <img class="art-sun" src="@/assets/img/art/sun.png" alt="sun">
-      <img class="art-tree" src="@/assets/img/art/tree.png" alt="tree">
+      <img class="art-star7" src="@/assets/img/common/star.png" alt="star">
+      <img class="art-star8" src="@/assets/img/common/star.png" alt="star">
       <boxContent class="art-artist">
         <router-link :to="'/'">
           <img class="art-artist-arrow" src="@/assets/img/common/back.png" alt="artist">
@@ -250,18 +249,11 @@ export default {
     width: 70px;
   }
 
-  &-sun {
+  &-star8 {
     position: absolute;
-    right: 0px;
-    top: 30%;
-    width: 152px;
-  }
-
-  &-tree {
-    position: absolute;
-    right: 0px;
+    right: 7%;
     top: 70%;
-    width: 152px;
+    width: 72px;
   }
 
 
@@ -419,13 +411,10 @@ export default {
     display: none;
   }
 
-  &-sun {
+  &-star8 {
     display: none;
   }
 
-  &-tree {
-    display: none;
-  }
 }
 
 }

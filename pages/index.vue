@@ -4,7 +4,9 @@
     <!-- --------------------------------------- -->
     <!-- box content -->
     <div class="index-prince-outer">
-      <img class="index-prince-bt-sheep" v-lazy="require('@/assets/img/desktop/bt-sheep.png')" alt="sheep">
+
+      <div class="index-prince-bt-outstar"></div>
+     
       <img class="index-prince-bt-starL1" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
       <img class="index-prince-bt-starL2" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
       <img class="index-prince-bt-starL3" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
@@ -13,15 +15,14 @@
       <img class="index-prince-bt-starL6" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
       <img class="index-prince-bt-starL7" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
 
-      <img class="index-prince-bt-flower" v-lazy="require('@/assets/img/desktop/bt-flower.png')" alt="flower">
-      <img class="index-prince-bt-board" v-lazy="require('@/assets/img/desktop/bt-board.png')" alt="board">
-      <img class="index-prince-bt-elephant" v-lazy="require('@/assets/img/desktop/bt-elephant.png')" alt="elephant">
       <img class="index-prince-bt-starR1" v-lazy="require('@/assets/img/desktop/star2.png')" alt="star">
       <img class="index-prince-bt-starR2" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
       <img class="index-prince-bt-starR3" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
       <img class="index-prince-bt-starR4" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
       <img class="index-prince-bt-starR5" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
       <img class="index-prince-bt-starR6" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
+      <img class="index-prince-bt-starR7" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
+      <img class="index-prince-bt-starR8" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
 
       <!-- 小王子的藝想世界 -->
       <boxContent class="index-prince" v-lazy:background-image="require('@/assets/img/index/prince-star.png')">
@@ -166,10 +167,12 @@
           </swiper>
         </div>
         <div class="index-art-line"></div>
-        <img ref="exIntro" class="index-art-img"
-          data-aos="fade-in" data-aos-delay="700" data-aos-duration="800" data-aos-easing="ease-in-sine"
-          v-lazy="require('@/assets/img/index/intro-img.png')" alt="intro"
-        >
+        <div class="index-art-img-box">
+          <img ref="exIntro" class="index-art-img"
+            data-aos="fade-in" data-aos-delay="700" data-aos-duration="800" data-aos-easing="ease-in-sine"
+            v-lazy="require('@/assets/img/index/intro-img.png')" alt="intro"
+          >
+        </div>
       </boxContent>
 
 
@@ -180,9 +183,15 @@
     <!-- --------------------------------------- -->
     <div class="index-exhi-outer">
 
-      <img class="index-exhi-skin-moon" v-lazy="require('@/assets/img/desktop/skin-moon.png')" alt="moon">
-      <img class="index-exhi-skin-star" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
-      <img class="index-exhi-skin-sun" v-lazy="require('@/assets/img/desktop/skin-sun.png')" alt="sun">
+      <img class="index-exhi-skin-starL1" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
+      <img class="index-exhi-skin-starL2" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
+      <img class="index-exhi-skin-starL3" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
+      <img class="index-exhi-skin-starL4" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
+
+      <img class="index-exhi-skin-starR1" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
+      <img class="index-exhi-skin-starR2" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
+      <img class="index-exhi-skin-starR3" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
+      <img class="index-exhi-skin-starR4" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
       
       <boxContent class="index-exhi">
         <div class="index-exhi-text">邀請喜愛小王子的鐵粉以及新朋友們一同家人全新展覽體驗；不再只是「看」展覽，而是跟著小王子穿越75個年頭，回到相遇的原點，一起展開星球旅行！請戴上登機手環與準備好一台互動的智慧型手機，即將於12.29～2022.4.6，在台北華山1914文創園區西一西二館啟程出發！</div>
@@ -248,11 +257,16 @@
    
    <!-- --------------------------------------- -->
     <div ref="ticketInfo" class="index-ticket-outer">
-      <img class="index-ticket-white-sun" v-lazy="require('@/assets/img/desktop/white-sun.png')" alt="sun">
-      <img class="index-ticket-white-fox" v-lazy="require('@/assets/img/desktop/white-fox.png')" alt="fox">
-      <img class="index-ticket-white-prince" v-lazy="require('@/assets/img/desktop/white-prince.png')" alt="prince">
-      <img class="index-ticket-white-flower" v-lazy="require('@/assets/img/desktop/white-flower.png')" alt="flower">
-      <img class="index-ticket-white-sun2" v-lazy="require('@/assets/img/desktop/white-sun.png')" alt="flower">
+
+      <img class="index-ticket-white-flowerL1" v-lazy="require('@/assets/img/desktop/red-flower.png')" alt="star">
+      <img class="index-ticket-white-flowerL2" v-lazy="require('@/assets/img/desktop/red-flower.png')" alt="star">
+      <img class="index-ticket-white-flowerL3" v-lazy="require('@/assets/img/desktop/red-flower.png')" alt="star">
+      <img class="index-ticket-white-flowerL4" v-lazy="require('@/assets/img/desktop/red-flower.png')" alt="star">
+
+      <img class="index-ticket-white-flowerR1" v-lazy="require('@/assets/img/desktop/red-flower.png')" alt="star">
+      <img class="index-ticket-white-flowerR2" v-lazy="require('@/assets/img/desktop/red-flower.png')" alt="star">
+      <img class="index-ticket-white-flowerR3" v-lazy="require('@/assets/img/desktop/red-flower.png')" alt="star">
+      <img class="index-ticket-white-flowerR4" v-lazy="require('@/assets/img/desktop/red-flower.png')" alt="star">
 
 
 
@@ -282,9 +296,15 @@
 
         <div class="index-ticket-box">
           <div class="index-ticket-head-box">
-            <img class="index-ticket-head-fox" v-lazy="require('@/assets/img/index/ticket-fox.png')" alt="airplane">
-            <div class="index-ticket-head">早鳥優惠</div>
+            <div  class="index-ticket-fox-box">
+              <img class="index-ticket-head-fox" v-lazy="require('@/assets/img/index/ticket-fox.png')" alt="airplane">
+              <div class="index-ticket-head">早鳥優惠</div>
+            </div>
+            <a href="https://lepetitprince75tw.backme.tw/shops/1995?locale=zh-TW" target="_blank">
+              <div class="index-ticket-buy">BUY TICKETS</div>
+            </a>
           </div>
+          <div class="index-ticket-subtitle">同一筆訂單需同一日至現場兌換入場手環（可預約當日不同場次時段），如須分開不同日參觀，請分開下訂。</div>
           <div class="index-ticket-line"></div>
 
           <!-- 票種 -->
@@ -292,7 +312,7 @@
             :key="index"
             class="index-ticket-row-box"
           >
-            <a :href="`${ticket.href}`" class="index-ticket-row">
+            <a :href="`${ticket.href}`" target="_blank" class="index-ticket-row">
               <div class="index-ticket-type" v-lazy:background-image="require('@/assets/img/index/ticket-post.png')">{{ ticket.type }}</div>
               <div class="index-ticket-desc">
                 <div v-if="ticket.money" class="index-ticket-desc-name">
@@ -337,15 +357,18 @@
     
     <!-- --------------------------------------- -->
     <div class="index-store-outer">
-      <img class="index-store-bb-star1" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
-      <img class="index-store-bb-star2" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
-      <img class="index-store-bb-elephant" v-lazy="require('@/assets/img/desktop/bb-elephant.png')" alt="elephant">
-      <img class="index-store-bb-tree1" v-lazy="require('@/assets/img/desktop/bb-tree1.png')" alt="tree">
 
-      
-      <img class="index-store-bb-star3" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
-      <img class="index-store-bb-star4" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
-      <img class="index-store-bb-tree2" v-lazy="require('@/assets/img/desktop/bb-tree2.png')" alt="tree">
+      <div class="index-store-bb-outstar"></div>
+
+      <img class="index-store-bb-starL1" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
+      <img class="index-store-bb-starL2" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
+      <img class="index-store-bb-starL3" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
+      <img class="index-store-bb-starL4" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
+
+      <img class="index-store-bb-starR1" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
+      <img class="index-store-bb-starR2" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
+      <img class="index-store-bb-starR3" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
+      <img class="index-store-bb-starR4" v-lazy="require('@/assets/img/desktop/star.png')" alt="star">
 
 
       <!-- 小王子商店 -->
@@ -673,30 +696,31 @@ export default {
       ],
       ticketInfo: [
         {
-          href: 'javascript:void(0);',
+          href: 'https://lepetitprince75tw.backme.tw/checkout/1995/15426?locale=zh-TW',
           type: '全票',
           paper: '元/張',
           money: '280',
           text: `早鳥優惠（原價 350 元/張）<br>適用於一般身份成人。`,
         },
         {
-          href: 'javascript:void(0);',
+          href: 'https://lepetitprince75tw.backme.tw/checkout/1995/15427?locale=zh-TW',
           type: '親子票',
           paper: '元/1張全票＋1張國小以下兒童票',
           money: '500',
           text: `
-            1. 適用於一位成人、陪伴一位4歲（含）～12歲（含）以下國小生。<br>
+            1. 適用於一位成人、陪伴一位4歲（含）～12歲（含）以下國小生<br>
             2. 使用親子票時，需同時入場，並出示有效身份證明文件。*提醒：現場未帶證件需補足「學生票」差額（即全票＋學生票=670元）
           `,
         },
         {
-          href: 'javascript:void(0);',
+          href: 'https://lepetitprince75tw.backme.tw/checkout/1995/15428?locale=zh-TW',
           type: '團體票',
           paper: '元/張',
           money: '300',
           text: `
             1. 單次購買限定為40張（含）以上團體購票<br>
-            2. 需同時入場，並提供平日參觀時段預約
+            2. 團體票為團體行動模式，需同一日前往參觀，惟因單次入場人數控管，將安排不同場次時段入場<br>
+            3. 訂購流程為訂購代表人購票後，來信預約參觀日期。參觀當日由訂購代表人至現場兌換入場手環後，由現場工作人員協助引導入場場次
           `,
         },
         {
@@ -706,7 +730,7 @@ export default {
           money: '',
           text: `
             1. 單次購買限定為50張（含）以上，請來信聯繫票務小組<br>
-            2. 可選擇同時入場或非同時入場，提供平日參觀時段預約<br>
+            2. 可選擇同日前往參觀（提供平日團體預約）或個別前往參觀（須自行入場場次），提供平日參觀時段預約<br>
             3. 另提供 VIP CLUB 空間租借與活動辦理合作，歡迎來信洽詢需求
           `,
         },
@@ -717,7 +741,7 @@ export default {
           money: '',
           text: `
             1. 單次購買限定為50張（含）以上，請來信聯繫票務小組<br>
-            2. 可選擇同時入場或非同時入場，提供平日參觀時段預約<br>
+            2. 可選擇同日前往參觀（提供平日團體預約）或個別前往參觀（須自行入場場次），提供平日參觀時段預約<br>
             3. 另提供 VIP CLUB 空間租借與活動辦理合作，歡迎來信洽詢需求
           `,
         },
@@ -874,13 +898,17 @@ export default {
 
   &-prince-bt {
 
-
-
-    &-sheep {
+    &-outstar {
       position: absolute;
-      top: 15%;
-      left: 20%;
-      width: 10%;
+      left: 0px;
+      top: 0px;
+      width: 100%;
+      height: 100%;
+      background-image: url('../assets/img/index/prince-star.png');
+      background-size: cover;
+      background-position-x: center;
+      background-position-y: center;
+      background-repeat: no-repeat;
     }
 
     &-starL1 {
@@ -932,67 +960,59 @@ export default {
       width: 67px;
     }
 
-    &-flower {
-      position: absolute;
-      top: 13%;
-      right: 16%;
-      width: 8%;
-    }
-
-
-    &-board {
-      position: absolute;
-      top: 50%;
-      right: 2%;
-      width: 120px;
-    }
-
-    &-elephant {
-      position: absolute;
-      top: 70%;
-      right: 12%;
-      width: 14%;
-    }
-
     &-starR1 {
       position: absolute;
       top: 4%;
       right: 10%;
-      width: 110px;
+      width: 130px;
     }
 
     &-starR2 {
       position: absolute;
-      top: 27%;
+      top: 17%;
       right: 15%;
       width: 66px;
     }
 
     &-starR3 {
       position: absolute;
-      top: 38%;
+      top: 28%;
       right: 22%;
       width: 52px;
     }
 
     &-starR4 {
       position: absolute;
-      top: 89%;
+      top: 40%;
       right: 20%;
       width: 60px;
     }
 
     &-starR5 {
       position: absolute;
-      top: 81%;
+      top: 55%;
       right: 10%;
       width: 54px;
     }
 
     &-starR6 {
       position: absolute;
-      top: 90%;
+      top: 67%;
       right: 24%;
+      width: 61px;
+    }
+
+    &-starR7 {
+      position: absolute;
+      top: 80%;
+      right: 14%;
+      width: 61px;
+    }
+
+    &-starR8 {
+      position: absolute;
+      top: 90%;
+      right: 21%;
       width: 61px;
     }
 
@@ -1120,7 +1140,10 @@ export default {
 
   // 最新消息
   &-news {
+    position: relative;
+    margin-top: -1px;
     padding: 20px 0px 23px;
+    background-color: #0F3963;
 
     &-bg {
       position: relative;
@@ -1169,6 +1192,8 @@ export default {
 
   &-book {
     position: relative;
+    margin-top: -1px;
+    background-color: #0F3963;
 
     &-title {
       width: calc(100% - 20px);
@@ -1267,7 +1292,10 @@ export default {
   // 藝術家介紹
 
   &-art {
-    margin-top: 30px;
+    position: relative;
+    padding-top: 30px;
+    margin-top: -1px;
+    background-color: #0F3963;
 
     &-head-box {
       margin: 0px 10px; 
@@ -1337,10 +1365,14 @@ export default {
       border-bottom: 1px dashed #778FB4;
     }
 
+    &-img-box {
+      position: relative;
+      transform: translateY(15px) !important;
+    }
+
     &-img {
       width: 100%;
       margin-top: -10px;
-      transform: translateY(15px);
     }
   }
 
@@ -1354,25 +1386,63 @@ export default {
 
   &-exhi-skin {
 
-    &-moon {
+    &-starL1 {
       position: absolute;
       left: 10%;
-      top: 20%;
-      width: 180px;
+      top: 10%;
+      width: 72px;
     }
 
-    &-star {
+    &-starL2 {
+      position: absolute;
+      left: 20%;
+      top: 35%;
+      width: 52px;
+    }
+
+    &-starL3 {
+      position: absolute;
+      left: 6%;
+      top: 55%;
+      width: 62px;
+      z-index: 2;
+    }
+
+    &-starL4 {
+      position: absolute;
+      left: 12%;
+      top: 75%;
+      width: 68px;
+      z-index: 2;
+    }
+
+    &-starR1 {
+      position: absolute;
+      right: 10%;
+      top: 12%;
+      width: 55px;
+    }
+
+    &-starR2 {
       position: absolute;
       right: 20%;
-      top: 15%;
-      width: 41px;
+      top: 33%;
+      width: 66px;
     }
 
-    &-sun {
+    &-starR3 {
       position: absolute;
-      right: 0%;
-      bottom: -10%;
-      width: 180px;
+      right: 12%;
+      top: 49%;
+      width: 62px;
+      z-index: 2;
+    }
+
+    &-starR4 {
+      position: absolute;
+      right: 22%;
+      top: 80%;
+      width: 60px;
       z-index: 2;
     }
 
@@ -1519,40 +1589,63 @@ export default {
 
   &-ticket-white {
 
-    &-sun {
+    &-flowerL1 {
       position: absolute;
-      left: 0%;
-      top: -7%;
-      width: 140px;
+      left: 10%;
+      top: 10%;
+      width: 72px;
     }
 
-    &-fox {
+    &-flowerL2 {
       position: absolute;
-      left: 8%;
-      top: 15%;
-      width: 128px;
+      left: 15%;
+      top: 35%;
+      width: 52px;
     }
 
-    &-prince {
+    &-flowerL3 {
       position: absolute;
-      left: 0%;
+      left: 6%;
+      top: 55%;
+      width: 62px;
+      z-index: 2;
+    }
+
+    &-flowerL4 {
+      position: absolute;
+      left: 12%;
       top: 75%;
-      width: 450px;
+      width: 68px;
+      z-index: 2;
     }
 
-    &-flower {
+    &-flowerR1 {
       position: absolute;
-      right: 5%;
-      top: 50%;
-      width: 400px;
+      right: 10%;
+      top: 12%;
+      width: 55px;
     }
 
-    &-sun2 {
+    &-flowerR2 {
       position: absolute;
-      right: 0%;
-      bottom: -6%;
-      width: 140px;
-      transform: rotate(180deg);
+      right: 16%;
+      top: 33%;
+      width: 66px;
+    }
+
+    &-flowerR3 {
+      position: absolute;
+      right: 6%;
+      top: 49%;
+      width: 62px;
+      z-index: 2;
+    }
+
+    &-flowerR4 {
+      position: absolute;
+      right: 18%;
+      top: 80%;
+      width: 60px;
       z-index: 2;
     }
   }
@@ -1599,8 +1692,14 @@ export default {
 
     &-head-box {
       display: flex;
-      align-items: baseline;
+      justify-content: space-between;
+      align-items: flex-end;
       margin: 40px 0px 0px;
+    }
+
+    &-fox-box {
+      display: flex;
+      align-items: baseline;
     }
 
     &-head-fox {
@@ -1611,6 +1710,27 @@ export default {
       font-size: 20px;
       color: #674F4F;
     }
+
+    &-buy {
+      padding: 7px 10px;
+      letter-spacing: 1.2px;
+      text-align: center;
+      
+      background-color: #685F5F;
+      color: white;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    &-subtitle {
+      margin: 10px 0px;
+      line-height: 1.4;
+      font-size: 12px;
+      color: #674F4F;
+    }
+
     &-line {
       margin: 14px 0px;
       border-bottom: 1px dashed #778FB4;
@@ -1724,54 +1844,77 @@ export default {
 
   &-store-bb {
 
-    &-star1 {
+    &-outstar {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      width: 100%;
+      height: 100%;
+      background-image: url('../assets/img/index/prince-star.png');
+      background-size: cover;
+      background-position-x: center;
+      background-position-y: center;
+      background-repeat: no-repeat;
+    }
+
+    &-starL1 {
       position: absolute;
       left: 10%;
-      top: 5%;
-      width: 80px;
+      top: 10%;
+      width: 72px;
     }
 
-    &-star2 {
+    &-starL2 {
       position: absolute;
       left: 20%;
-      top: 30%;
-      width: 62px;
+      top: 35%;
+      width: 52px;
     }
 
-    &-elephant {
+    &-starL3 {
       position: absolute;
-      left: 0%;
-      top: 24%;
-      // top: 50%;
-      width: 15%;
-    }
-
-    &-tree1 {
-      position: absolute;
-      left: 0%;
-      bottom: 0%;
-      width: 30%;
-    }
-
-    &-star3 {
-      position: absolute;
-      right: 10%;
-      top: 24%;
-      width: 80px;
-    }
-
-    &-star4 {
-      position: absolute;
-      right: 15%;
+      left: 6%;
       top: 55%;
       width: 62px;
+      z-index: 2;
     }
 
-    &-tree2 {
+    &-starL4 {
       position: absolute;
-      right: 0%;
-      bottom: 0%;
-      width: 30%;
+      left: 12%;
+      top: 75%;
+      width: 68px;
+      z-index: 2;
+    }
+
+    &-starR1 {
+      position: absolute;
+      right: 10%;
+      top: 12%;
+      width: 55px;
+    }
+
+    &-starR2 {
+      position: absolute;
+      right: 20%;
+      top: 33%;
+      width: 66px;
+    }
+
+    &-starR3 {
+      position: absolute;
+      right: 12%;
+      top: 49%;
+      width: 62px;
+      z-index: 2;
+    }
+
+    &-starR4 {
+      position: absolute;
+      right: 22%;
+      top: 80%;
+      width: 60px;
+      z-index: 2;
     }
   }
 
@@ -1943,20 +2086,6 @@ export default {
 
     &-prince {
 
-      &-bt-sheep {
-        top: 17%;
-        left: 16%;
-      }
-
-
-      &-bt-starR4 {
-        right: 10%;
-      }
-
-      &-bt-starR6 {
-        top: 94%;
-        right: 8%;
-      }
     }
     
   }
@@ -2023,68 +2152,117 @@ export default {
         display: none;
       }
 
-      &-sheep {
+      &-starR7 {
         display: none;
       }
 
-      &-flower {
+      &-starR8 {
         display: none;
       }
-
-      &-board {
-        display: none;
-      }
-
-      &-elephant {
-        display: none;
-      }
-
-
 
     }
 
     &-exhi-skin {
 
-
-      &-moon {
+      &-starL1 {
         display: none;
       }
 
-      &-sun {
+      &-starL2 {
+        display: none;
+      }
+
+      &-starL3 {
+        display: none;
+      }
+
+      &-starL4 {
+        display: none;
+      }
+
+      &-starR1 {
+        display: none;
+      }
+
+      &-starR2 {
+        display: none;
+      }
+
+      &-starR3 {
+        display: none;
+      }
+
+      &-starR4 {
         display: none;
       }
     }
 
     &-ticket-white {
 
-      &-sun {
+      &-flowerL1 {
         display: none;
       }
 
-      &-fox {
+      &-flowerL2 {
         display: none;
       }
 
-      &-prince {
+      &-flowerL3 {
         display: none;
       }
 
-      &-flower {
+      &-flowerL4 {
         display: none;
       }
 
-      &-sun2 {
+      &-flowerR1 {
+        display: none;
+      }
+
+      &-flowerR2 {
+        display: none;
+      }
+
+      &-flowerR3 {
+        display: none;
+      }
+
+      &-flowerR4 {
         display: none;
       }
     }
 
     &-store-bb {
 
-      &-elephant {
+      &-starL1 {
         display: none;
       }
 
-      &-moon {
+      &-starL2 {
+        display: none;
+      }
+
+      &-starL3 {
+        display: none;
+      }
+
+      &-starL4 {
+        display: none;
+      }
+
+      &-starR1 {
+        display: none;
+      }
+
+      &-starR2 {
+        display: none;
+      }
+
+      &-starR3 {
+        display: none;
+      }
+
+      &-starR4 {
         display: none;
       }
 
