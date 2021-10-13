@@ -37,7 +37,7 @@
         
         <div class="index-prince-bg"></div>
         <img class="wow animate__fadeInTopLeft index-prince-man"
-          data-wow-duration="0.5s"
+          data-wow-duration="4.5s"
           data-wow-delay="0s"
           data-wow-iteration="1"
           v-lazy="require('@/assets/img/index/prince-bird.png')" alt="bird"
