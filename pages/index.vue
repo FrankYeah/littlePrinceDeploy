@@ -37,7 +37,7 @@
         
         <div class="index-prince-bg"></div>
         <img class="wow animate__fadeInTopLeft index-prince-man"
-          data-wow-duration="4.5s"
+          data-wow-duration="0.5s"
           data-wow-delay="0s"
           data-wow-iteration="1"
           v-lazy="require('@/assets/img/index/prince-bird.png')" alt="bird"
@@ -345,7 +345,7 @@
             <a href="https://24h.pchome.com.tw/prod/DXAP2E-A900BT8TH" target="_blank">
               <img class="index-ticket-place" v-lazy="require('@/assets/img/index/outsell-pchome.png')" alt="pchome">
             </a>
-            <a href="" target="_blank">
+            <a href="https://www.klook.com/zh-TW/activity/64271-exhibition-littleprince-taipei-klook/" target="_blank">
               <img class="index-ticket-place" v-lazy="require('@/assets/img/index/outsell-klook.png')" alt="klook">
             </a>
           </div>

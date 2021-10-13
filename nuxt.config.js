@@ -5,9 +5,9 @@ export default {
   mode: 'universal',
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
-  router: {
-    base: '/littlePrinceTest/'
-  },
+  // router: {
+  //   base: '/littlePrinceTest/'
+  // },
   head: {
     titleTemplate: '%s',
     title: '小王子的藝想世界 75 周年特展',
@@ -22,7 +22,7 @@ export default {
       { hid: 'og:type' , property: 'og:type' , content: 'website'},
       // { hid: 'og:url' , property: 'og:url' , content: ''},
       { hid: 'description', name: 'description', content: '尋找 找到你心中的小王子" All grown-ups were children first. (But few of them remember it.) "問題不在於長大，在於你忘了自己曾是個小孩。' },
-      { hid: 'og:description' , property: 'og:description' , content: '尋找 找到你心中的小王子" All grown-ups were children first. (But few of them remember it.) "問題不在於長大，在於你忘了自己曾是個小孩。。'},
+      { hid: 'og:description' , property: 'og:description' , content: '尋找 找到你心中的小王子" All grown-ups were children first. (But few of them remember it.) "問題不在於長大，在於你忘了自己曾是個小孩。'},
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: 'favicon.ico' }
@@ -98,12 +98,20 @@ export default {
     '~/plugins/component.js',
     '~/plugins/vue-awesome-swiper',
     { src: '~/plugins/vue-lazyload', ssr: true },
+    { src: '~plugins/ga.js', ssr: false }
   ],
   modules: [
     '@nuxtjs/pwa',
     '@nuxtjs/style-resources',
     '@nuxtjs/axios',
+    'nuxt-facebook-pixel-module'
   ],
+  facebook: {
+    track: 'PageView',
+    // 替換自己 FB Pixel 的 ID
+    pixelId: '652899619027075',
+    disabled: false
+  },
   axios: {
     
   }
