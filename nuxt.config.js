@@ -98,7 +98,7 @@ export default {
     '~/plugins/component.js',
     '~/plugins/vue-awesome-swiper',
     { src: '~/plugins/vue-lazyload', ssr: true },
-    { src: '~plugins/ga.js', ssr: false }
+    { src: '~/plugins/gtag'},
   ],
   modules: [
     '@nuxtjs/pwa',
