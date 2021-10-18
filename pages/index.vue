@@ -226,7 +226,7 @@
 
         </div>
 
-        <div class="index-chapter-head-box">
+        <!-- <div class="index-chapter-head-box">
           <div class="index-chapter-head-left">
             <img class="index-chapter-chapter" v-lazy="require('@/assets/img/index/chapter-gallery.png')" alt="intro">
               <div class="index-chapter-title"></div>
@@ -249,7 +249,7 @@
             ></div>
           </div>
           
-        </div>
+        </div> -->
       </boxContent>
 
     </div>
@@ -421,15 +421,20 @@
             <div class="index-footer-box">
               <div>
                 <div class="index-footer-text">總策展方｜為美學有限公司</div>
+                <div class="index-footer-text">主策展人｜張為雲</div>
                 <div class="index-footer-text">協同策展｜不難設計藝術有限公司</div>
-                <div class="index-footer-text">展覽協力｜群眾自造股份有限公司</div>
                 <div class="index-footer-text">授權單位｜薩摩亞商羚邦亞洲有限公司</div>
+                <div class="index-footer-text index-footer-text-indent1">展覽協力｜群眾自造股份有限公司、相映國際股份有限公司</div>
+                <div class="index-footer-text">執行團隊｜天衍互動股份有限公司</div>
               </div>
               <div>
+                <div class="index-footer-text">音樂合作｜相信音樂國際股份有限公司</div>
+                <div class="index-footer-text">聲音指導｜陳威宇</div>
                 <div class="index-footer-text">行銷團隊｜大宇宙情報股份有限公司</div>
                 <div class="index-footer-text">行銷顧問｜貝殼放大股份有限公司</div>
                 <div class="index-footer-text">商品開發｜可蘿國際股份有限公司</div>
-                <div class="index-footer-text">聲音指導｜陳威宇</div>
+                <div class="index-footer-text index-footer-text-indent2">藝術創作｜呂志文、何佳樺、 張嘉穎、蔡景康、Aura Creative Lab</div>
+                <!-- <div class="index-footer-text index-footer-text-indent3">票務合作｜博客來、KKday、Klook、KKtix、PChome旅遊、PChome24</div> -->
               </div>
             </div>
 
@@ -530,19 +535,19 @@ export default {
           clickable: true
         }
       },
-      swiperOptionGallery: {
-        slidesPerView: 1,
-        spaceBetween: 30,
-        lazy: true,
-        autoplay: {
-          delay: 2500,
-          disableOnInteraction: false,
-        },
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true
-        }
-      },
+      // swiperOptionGallery: {
+      //   slidesPerView: 1,
+      //   spaceBetween: 30,
+      //   lazy: true,
+      //   autoplay: {
+      //     delay: 2500,
+      //     disableOnInteraction: false,
+      //   },
+      //   pagination: {
+      //     el: '.swiper-pagination',
+      //     clickable: true
+      //   }
+      // },
       swiperOptionSponsor: {
         slidesPerView: 3,
         spaceBetween: 30,
@@ -780,11 +785,11 @@ export default {
     })
 
     // 輪播
-    this.tempGallery = this.mySwiperGallery
+    // this.tempGallery = this.mySwiperGallery
     this.tempBook = this.mySwiperBook
   },
   computed: {
-    mySwiperGallery () { return this.$refs.mySwiperGallery.$swiper },
+    // mySwiperGallery () { return this.$refs.mySwiperGallery.$swiper },
     mySwiperBook () { return this.$refs.mySwiperBook.$swiper },
   },
   methods: {
@@ -857,9 +862,9 @@ export default {
       this.isSelectMark.five = false
       this.isSelectMark.six = false
     },
-    selectGallery(index) {
-      this.mySwiperGallery.slideTo(index)
-    }
+    // selectGallery(index) {
+    //   this.mySwiperGallery.slideTo(index)
+    // }
   },
   watch: {
     'tempGallery.activeIndex': {
@@ -2005,9 +2010,7 @@ export default {
     background-color: #E8E1D1;
 
     &-outer-box {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+
     }
 
     &-box {
@@ -2015,21 +2018,36 @@ export default {
     }
 
     &-text {
-      margin: 0px 0px 11px;
+      margin: 0px 0px 8px;
       font-size: 12px;
       text-align: left;
       color: #4D4D4D;
+      line-height: 1.5;
     }
+
+    &-text-indent1 {
+      margin-left: 60.5px;
+      text-indent: -60.5px;
+    }
+
+    &-text-indent2 {
+      margin-left: 62px;
+      text-indent: -62px;
+    }
+
+    // &-text-indent3 {
+    //   margin-left: 62px;
+    //   text-indent: -62px;
+    // }
 
     &-social-box {
       display: flex;
-      flex-direction: column;
-      text-align: left;
+      margin-top: 12px;
     }
 
     &-social {
       height: 21px;
-      margin: 7px 0px;
+      margin: 0px 7px;
     }
 
     &-copyright {
