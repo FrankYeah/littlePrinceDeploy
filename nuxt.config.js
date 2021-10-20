@@ -104,7 +104,8 @@ export default {
     '@nuxtjs/pwa',
     '@nuxtjs/style-resources',
     '@nuxtjs/axios',
-    'nuxt-facebook-pixel-module'
+    'nuxt-facebook-pixel-module',
+    ['@nuxtjs/google-tag-manager', { id: 'GTM-THVL6GB' }]
   ],
   facebook: {
     track: 'PageView',
