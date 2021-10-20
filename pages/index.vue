@@ -335,17 +335,22 @@
             </a>
             
             <a href="https://tickets.books.com.tw/progshow/08010201555203" target="_blank">
-              <img class="index-ticket-place" v-lazy="require('@/assets/img/index/outsell-book.png')" alt="kkday">
+              <img class="index-ticket-place" v-lazy="require('@/assets/img/index/outsell-book.png')" alt="博客來">
             </a>
           </div>
           <div class="index-ticket-place-right">
-            <a href="https://www.pchometravel.com/ticket/V921007202109250005/the-fantasy-world-of-le-petit-prince" target="_blank">
-              <img class="index-ticket-place" v-lazy="require('@/assets/img/index/outsell-pchome-travel.png')" alt="book">
+            <!-- https://joymall.co/2t8n- -->
+            <!-- https://www.pchometravel.com/ticket/V921007202109250005/the-fantasy-world-of-le-petit-prince -->
+            <!-- https://www.pchometravel.com/ticket/V921007202109250005/the-fantasy-world-of-le-petit-prince?utm_source=ichannel&gid=2f6ca468ad0ce1f5964aa474d7061dee -->
+            <a :href="`https://www.pchometravel.com/ticket/V921007202109250005/the-fantasy-world-of-le-petit-prince?utm_source=ichannel&gid=2f6ca468ad0ce1f5964aa474d7061dee`" target="_blank">
+              <img class="index-ticket-place" v-lazy="require('@/assets/img/index/outsell-pchome-travel.png')" alt="pchome">
             </a>
             <a href="https://24h.pchome.com.tw/prod/DXAP2E-A900BT8TH" target="_blank">
               <img class="index-ticket-place" v-lazy="require('@/assets/img/index/outsell-pchome.png')" alt="pchome">
             </a>
-            <a href="https://www.klook.com/zh-TW/activity/64271-exhibition-littleprince-taipei-klook/" target="_blank">
+            <!-- https://affiliate.klook.com/redirect?aid=27366&aff_adid=568319&k_site=https%3A%2F%2Fwww.klook.com%2Fzh-TW%2Factivity%2F64271-exhibition-littleprince-taipei-klook%2F -->
+            <!-- https://www.klook.com/zh-TW/activity/64271-exhibition-littleprince-taipei-klook/ -->
+            <a :href="`https://affiliate.klook.com/redirect?aid=27366&aff_adid=568319&k_site=https%3A%2F%2Fwww.klook.com%2Fzh-TW%2Factivity%2F64271-exhibition-littleprince-taipei-klook%2F`" target="_blank">
               <img class="index-ticket-place" v-lazy="require('@/assets/img/index/outsell-klook.png')" alt="klook">
             </a>
           </div>
