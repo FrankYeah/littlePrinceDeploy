@@ -330,10 +330,12 @@
             <a href="https://weiyunchangart.kktix.cc/events/b42fb9f3" target="_blank">
               <img class="index-ticket-place" v-lazy="require('@/assets/img/index/outsell-kktix.png')" alt="kktix">
             </a>
-            <a href="https://www.kkday.com/zh-tw/product/123126" target="_blank">
+            <!-- https://www.kkday.com/zh-tw/product/123126?mId=1e6d7ee73abc45698ce9c43b30365047&cid=5109&ud1=d317c9df20c73 -->
+            <!-- https://www.kkday.com/zh-tw/product/123126 -->
+            <a :href="`https://www.kkday.com/zh-tw/product/123126?mId=1e6d7ee73abc45698ce9c43b30365047&cid=5109&ud1=d317c9df20c73`" target="_blank">
               <img class="index-ticket-place" v-lazy="require('@/assets/img/index/outsell-kkday.png')" alt="kkday">
             </a>
-            
+                    
             <a href="https://tickets.books.com.tw/progshow/08010201555203" target="_blank">
               <img class="index-ticket-place" v-lazy="require('@/assets/img/index/outsell-book.png')" alt="博客來">
             </a>
