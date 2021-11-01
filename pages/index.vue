@@ -82,7 +82,7 @@
               <img class="index-news-fb" v-lazy="require('@/assets/img/index/news-fb.png')" alt="hat">
             </a>
           </div>
-          <div class="index-news-text">早鳥優惠價280元限時優惠（原價350元/張），即日起至10/31止，全檔期唯一最低單價票種，暢遊5大劇場情境式展區，完整走入小王子的世界！</div>
+          <div class="index-news-text">「小王子的藝想世界」忠實呈現 5 大故事軸線，透過奇幻氛圍的12個劇場式展間與沈浸式互動投影，四位藝術家呂志文、張嘉穎、蔡景康及 Aura Creative Lab，伴隨展場音樂家何佳樺及重量級故事人黃子佼、林依晨獻聲引導，跟著小王子一起探索內心的尋找之旅。</div>
         </div>
       </boxContent>
 
@@ -284,29 +284,37 @@
           data-wow-iteration="1"
           v-lazy="require('@/assets/img/index/ticket-airplane.png')" alt="airplane"
         >
-        <div class="index-ticket-sub">
+
+        <div v-if="!isShowTicketText" class="index-ticket-sub">
           欲前往「小王子的藝想世界」前，請特別留意以下事項：<br>
-          1. 同一筆訂單需一同登機，如須分開入場，請分開下訂。<br>
-          2. 請務必於展覽期間，逾期視同作廢，超過2022年4月6日後，小王子就會回去自己的星球囉！<br>
-          3. 這裡與合作通路各有不同的登機方式，請挑選最適合你的吧～<br><br>
-          
-           【優先預約制說明】<br>
-            1. 透過各購票平台購入後，依平台規範與消費者自行選擇，將會獲得「電子憑證」或「通路制式紙本票券」<br>
-            ＊同一筆訂單需一同入場，如須分開入場，請分開下訂。<br>
-            2. 本次展覽為情境劇場式展覽，將採取「優先預約制」，開展前一個月將寄送「參觀時段預約連結」至訂購登記之電子信箱，請留意提供可確實收信之email，並於展前至展覽社群平台確認訊息發布。<br>
-            ＊展覽現場也會開放現場登記時段名額，但若線上登記已全部額滿的日期，則會需要現場登記候補。<br>
-            3. 預約當日至展覽現場後請依現場導引，將購票完成之「電子憑證」或「通路制式紙本票券」兌換「入場飛行手環」，是整場觀賞的重要工具、並且也是印有小王子相關角色可收藏之紙本票券，一張憑證隨機兌換一個飛行手環，不提供挑選與更換，敬請見諒。<br>
-            ＊符合「免票身份」之嬰幼兒恕不提供飛行手環。
-
-
+          1. 透過各購票平台購入後，依平台規範與消費者自行選擇，將會獲得「電子憑證」或「通路制式紙本票券」。<br>
+          <span style="color: #B4B4B4;">＊同一筆訂單需一同入場，如須分開入場，請分開下訂。<br></span>
         </div>
+
+        <div v-else class="index-ticket-sub">
+          欲前往「小王子的藝想世界」前，請特別留意以下事項：<br>
+          1. 透過各購票平台購入後，依平台規範與消費者自行選擇，將會獲得「電子憑證」或「通路制式紙本票券」。<br>
+          <span style="color: #B4B4B4;">＊同一筆訂單需一同入場，如須分開入場，請分開下訂。<br></span>
+          2. 本次展覽為情境劇場式展覽，將採取「優先預約制」，開展前一個月將寄送「參觀時段預約連結」至訂購登記之電子信箱，請留意提供可確實收信之email，並於展前至展覽社群平台確認訊息發布。<br>
+          <span style="color: #B4B4B4;">＊展覽現場也會開放現場登記時段名額，但若線上登記已全部額滿的日期，則會需要現場登記候補。<br></span>
+          3. 預約當日至展覽現場後請依現場導引，將購票完成之「電子憑證」或「通路制式紙本票券」兌換「入場飛行手環」，是整場觀賞的重要工具、並且也是印有小王子相關角色可收藏之紙本票券，一張憑證隨機兌換一個飛行手環，不提供挑選與更換，敬請見諒。<br>
+          <span style="color: #B4B4B4;">＊符合「免票身份」之嬰幼兒恕不提供飛行手環。</span>
+        </div>
+
+        <div class="index-ticket-btn-box">
+          <img @click="isShowTicketText = !isShowTicketText"
+            :class="['index-ticket-btn', {'index-ticket-btn-rotate': isShowTicketText}]"
+            v-lazy="require(`@/assets/img/index/book-btn.png`)"  alt="btn"
+          >
+        </div>
+
         <img class="index-ticket-land" v-lazy="require('@/assets/img/index/ticket-land.png')" alt="airplane">
 
         <div class="index-ticket-box">
           <div class="index-ticket-head-box">
             <div  class="index-ticket-fox-box">
               <img class="index-ticket-head-fox" v-lazy="require('@/assets/img/index/ticket-fox.png')" alt="airplane">
-              <div class="index-ticket-head">早鳥優惠</div>
+              <div class="index-ticket-head">一般發售</div>
             </div>
             <a href="https://lepetitprince75tw.backme.tw/shops/1995?locale=zh-TW" target="_blank">
               <div class="index-ticket-buy">BUY TICKETS</div>
@@ -367,10 +375,10 @@
             <!-- https://joymall.co/2t8n- -->
             <!-- https://www.pchometravel.com/ticket/V921007202109250005/the-fantasy-world-of-le-petit-prince -->
             <!-- https://www.pchometravel.com/ticket/V921007202109250005/the-fantasy-world-of-le-petit-prince?utm_source=ichannel&gid=2f6ca468ad0ce1f5964aa474d7061dee -->
-            <a :href="`https://www.pchometravel.com/ticket/V921007202109250005/the-fantasy-world-of-le-petit-prince`" target="_blank">
+            <a :href="`https://cdnwww.pchometravel.com/ticket/V921007202111010001/the-fantasy-world-of-le-petit-prince-copy`" target="_blank">
               <img class="index-ticket-place" v-lazy="require('@/assets/img/index/outsell-pchome-travel.png')" alt="pchome">
             </a>
-            <a href="https://24h.pchome.com.tw/prod/DXAP2E-A900BT8TH" target="_blank">
+            <a href="https://24h.pchome.com.tw/store/DXAP36" target="_blank">
               <img class="index-ticket-place" v-lazy="require('@/assets/img/index/outsell-pchome.png')" alt="pchome">
             </a>
             <!-- https://affiliate.klook.com/redirect?aid=27366&aff_adid=568319&k_site=https%3A%2F%2Fwww.klook.com%2Fzh-TW%2Factivity%2F64271-exhibition-littleprince-taipei-klook%2F -->
@@ -678,6 +686,7 @@ export default {
         four: false,
         five: false,
       },
+      isShowTicketText: false,
       chapterContent: [
         {
           num: 'one',
@@ -753,9 +762,8 @@ export default {
           paper: '元/張',
           money: '175',
           text: `
-            1. 與6月29日（作者生日）出生可享有特惠票優惠，隨票至現場票亭兌換驚喜小禮。<br>
-            2. 享有免排隊快速通關入場（僅限持生日票本人）<br>
-            3. 兌換票券時需出示本人相關證明文件，未攜帶本人證件需補足票價差額。
+            1. 於6月29日（作者生日）出生者可享有入場半價優惠，隨票兌換生日小禮包，並可享有特別驚喜。<br>
+            2. 兌換票券時需出示本人相關證明文件。
           `,
         },
         {
@@ -798,7 +806,7 @@ export default {
           money: '320',
           text: `
             ● 現場販售ONLY<br>
-            1. 年齡6歲（含）以上小學～大專院校以下學生。<br>
+            1. 6歲（含）以上小學～大專院校以下學生。<br>
             2. 滿6歲尚未註冊入學之兒童，可出示身份證明文件，限購一張。 <br>
             3. 持本國籍大專以下有效學生證件之在學學生，以當學期註冊章為憑(網路查詢學籍證明恕不適用)。<br>
             4. 兌換票券時，需出示身份證明文件、本人學生證正本以備查驗，每證限購一張。<br>
@@ -877,7 +885,7 @@ export default {
     },
     getRunTime () {
       // 作法：https://blog.csdn.net/sinat_34104446/article/details/81259483
-      let setTime = new Date("2021/11/1 00:00:00")
+      let setTime = new Date("2021/12/29 00:00:00")
       let nowTime = new Date()
 
       let restSec = setTime.getTime() - nowTime.getTime()
@@ -900,9 +908,9 @@ export default {
         this.runtime = this.runtime + minu + ':'
       }
       if(sec < 10) {
-        this.runtime =　this.runtime + '0' + sec + '<br>限時早鳥'
+        this.runtime =　this.runtime + '0' + sec + '<br>前往B612'
       } else {
-        this.runtime = this.runtime + sec + '<br>限時早鳥'
+        this.runtime = this.runtime + sec + '<br>前往B612'
       }
 
       
@@ -1230,7 +1238,7 @@ export default {
     &-bg {
       position: relative;
       max-width: 372px;
-      height: 232px;
+      height: 278px;
       width: calc(100% - 0px);
       margin: 0px 0px;
       background-size: contain;
@@ -1757,6 +1765,26 @@ export default {
       letter-spacing: 0.8px;
       color: #4D4D4D;
       z-index: 2;
+    }
+
+    &-btn-box {
+      margin-top: 16px;
+      text-align: center;
+    }
+
+    &-btn {
+      position: relative;
+      width: 26px;
+      z-index: 2;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    &-btn-rotate {
+      transform: rotate(180deg);
     }
 
     &-land {
@@ -2433,12 +2461,23 @@ export default {
       }
     }
 
+    
+
   }
 }
 
 @media( max-width: 350px ){
 
   .index {
+
+    &-news {
+      padding: 20px 0px 0px;
+
+      &-text {
+        padding: 12px 40px 0px;
+        line-height: 1.6;
+      }
+    }
 
     &-ticket {
 
