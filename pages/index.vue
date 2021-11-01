@@ -289,8 +289,16 @@
           1. 同一筆訂單需一同登機，如須分開入場，請分開下訂。<br>
           2. 請務必於展覽期間，逾期視同作廢，超過2022年4月6日後，小王子就會回去自己的星球囉！<br>
           3. 這裡與合作通路各有不同的登機方式，請挑選最適合你的吧～<br><br>
-          為能達成控管入場人流與最佳觀展品質，將於「開展前一個月」開放提供參觀時段預約連結。於入場時配合防疫措施，完成實聯制並進行消毒雙手及測量體溫（現場將備有消毒酒精），並且記得參觀時應全程佩戴口罩喔！
-        
+          
+           【優先預約制說明】<br>
+            1. 透過各購票平台購入後，依平台規範與消費者自行選擇，將會獲得「電子憑證」或「通路制式紙本票券」<br>
+            ＊同一筆訂單需一同入場，如須分開入場，請分開下訂。<br>
+            2. 本次展覽為情境劇場式展覽，將採取「優先預約制」，開展前一個月將寄送「參觀時段預約連結」至訂購登記之電子信箱，請留意提供可確實收信之email，並於展前至展覽社群平台確認訊息發布。<br>
+            ＊展覽現場也會開放現場登記時段名額，但若線上登記已全部額滿的日期，則會需要現場登記候補。<br>
+            3. 預約當日至展覽現場後請依現場導引，將購票完成之「電子憑證」或「通路制式紙本票券」兌換「入場飛行手環」，是整場觀賞的重要工具、並且也是印有小王子相關角色可收藏之紙本票券，一張憑證隨機兌換一個飛行手環，不提供挑選與更換，敬請見諒。<br>
+            ＊符合「免票身份」之嬰幼兒恕不提供飛行手環。
+
+
         </div>
         <img class="index-ticket-land" v-lazy="require('@/assets/img/index/ticket-land.png')" alt="airplane">
 
@@ -312,8 +320,8 @@
             :key="index"
             class="index-ticket-row-box"
           >
-            <a :href="`${ticket.href}`" target="_blank" class="index-ticket-row">
-              <div class="index-ticket-type" v-lazy:background-image="require('@/assets/img/index/ticket-post.png')">{{ ticket.type }}</div>
+            <a v-if="ticket.href" :href="`${ticket.href}`" target="_blank" class="index-ticket-row">
+              <div v-html="ticket.type" class="index-ticket-type" v-lazy:background-image="require('@/assets/img/index/ticket-post.png')"></div>
               <div class="index-ticket-desc">
                 <div v-if="ticket.money" class="index-ticket-desc-name">
                   <span class="index-ticket-desc-name-big">{{ ticket.money }}</span>
@@ -322,17 +330,32 @@
                 <div v-html="ticket.text" class="index-ticket-desc-text"></div>
               </div>
             </a>
+
+            <div v-else class="index-ticket-row">
+              <div v-html="ticket.type" class="index-ticket-type" v-lazy:background-image="require('@/assets/img/index/ticket-post.png')"></div>
+              <div class="index-ticket-desc">
+                <div v-if="ticket.money" class="index-ticket-desc-name">
+                  <span class="index-ticket-desc-name-big">{{ ticket.money }}</span>
+                  {{ ticket.paper }}
+                </div>
+                <div v-html="ticket.text" class="index-ticket-desc-text"></div>
+              </div>
+            </div>
+
             <div class="index-ticket-line"></div>
           </div>
 
-          <div class="index-ticket-hint">＼ 你也可以在以下平台購買 ／</div>
+          <div class="index-ticket-hint">＼ 你也可以在以下平台購買 ／
+            <br><br>
+            另有票務平台限定票，包含KKTIX雙人/四人票、KKday商品套票等，歡迎至各票務平台選購。
+          </div>
           <div class="index-ticket-place-left">
             <a href="https://weiyunchangart.kktix.cc/events/b42fb9f3" target="_blank">
               <img class="index-ticket-place" v-lazy="require('@/assets/img/index/outsell-kktix.png')" alt="kktix">
             </a>
             <!-- https://www.kkday.com/zh-tw/product/123126?mId=1e6d7ee73abc45698ce9c43b30365047&cid=5109&ud1=d317c9df20c73 -->
             <!-- https://www.kkday.com/zh-tw/product/123126 -->
-            <a :href="`https://www.kkday.com/zh-tw/product/123126?mId=1e6d7ee73abc45698ce9c43b30365047&cid=5109&ud1=d317c9df20c73`" target="_blank">
+            <a :href="`https://www.kkday.com/zh-tw/product/123126`" target="_blank">
               <img class="index-ticket-place" v-lazy="require('@/assets/img/index/outsell-kkday.png')" alt="kkday">
             </a>
                     
@@ -344,7 +367,7 @@
             <!-- https://joymall.co/2t8n- -->
             <!-- https://www.pchometravel.com/ticket/V921007202109250005/the-fantasy-world-of-le-petit-prince -->
             <!-- https://www.pchometravel.com/ticket/V921007202109250005/the-fantasy-world-of-le-petit-prince?utm_source=ichannel&gid=2f6ca468ad0ce1f5964aa474d7061dee -->
-            <a :href="`https://www.pchometravel.com/ticket/V921007202109250005/the-fantasy-world-of-le-petit-prince?utm_source=ichannel&gid=2f6ca468ad0ce1f5964aa474d7061dee`" target="_blank">
+            <a :href="`https://www.pchometravel.com/ticket/V921007202109250005/the-fantasy-world-of-le-petit-prince`" target="_blank">
               <img class="index-ticket-place" v-lazy="require('@/assets/img/index/outsell-pchome-travel.png')" alt="pchome">
             </a>
             <a href="https://24h.pchome.com.tw/prod/DXAP2E-A900BT8TH" target="_blank">
@@ -352,7 +375,7 @@
             </a>
             <!-- https://affiliate.klook.com/redirect?aid=27366&aff_adid=568319&k_site=https%3A%2F%2Fwww.klook.com%2Fzh-TW%2Factivity%2F64271-exhibition-littleprince-taipei-klook%2F -->
             <!-- https://www.klook.com/zh-TW/activity/64271-exhibition-littleprince-taipei-klook/ -->
-            <a :href="`https://affiliate.klook.com/redirect?aid=27366&aff_adid=568319&k_site=https%3A%2F%2Fwww.klook.com%2Fzh-TW%2Factivity%2F64271-exhibition-littleprince-taipei-klook%2F`" target="_blank">
+            <a :href="`https://www.klook.com/zh-TW/activity/64271-exhibition-littleprince-taipei-klook/`" target="_blank">
               <img class="index-ticket-place" v-lazy="require('@/assets/img/index/outsell-klook.png')" alt="klook">
             </a>
           </div>
@@ -708,11 +731,11 @@ export default {
       ],
       ticketInfo: [
         {
-          href: 'https://lepetitprince75tw.backme.tw/checkout/1995/15426?locale=zh-TW',
+          href: 'https://lepetitprince75tw.backme.tw/checkout/1995/15904?locale=zh-TW',
           type: '全票',
           paper: '元/張',
-          money: '280',
-          text: `早鳥優惠（原價 350 元/張）<br>適用於一般身份成人。`,
+          money: '350',
+          text: `適用於一般身份成人。`,
         },
         {
           href: 'https://lepetitprince75tw.backme.tw/checkout/1995/15427?locale=zh-TW',
@@ -722,6 +745,17 @@ export default {
           text: `
             1. 適用於一位成人、陪伴一位4歲（含）～12歲（含）以下國小生<br>
             2. 使用親子票時，需同時入場，並出示有效身份證明文件。*提醒：現場未帶證件需補足「學生票」差額（即全票＋學生票=670元）
+          `,
+        },
+        {
+          href: 'https://lepetitprince75tw.backme.tw/checkout/1995/15905?locale=zh-TW',
+          type: '小王子<br>生日快樂票',
+          paper: '元/張',
+          money: '175',
+          text: `
+            1. 與6月29日（作者生日）出生可享有特惠票優惠，隨票至現場票亭兌換驚喜小禮。<br>
+            2. 享有免排隊快速通關入場（僅限持生日票本人）<br>
+            3. 兌換票券時需出示本人相關證明文件，未攜帶本人證件需補足票價差額。
           `,
         },
         {
@@ -755,6 +789,42 @@ export default {
             1. 單次購買限定為50張（含）以上，請來信聯繫票務小組<br>
             2. 可選擇同日前往參觀（提供平日團體預約）或個別前往參觀（須自行入場場次），提供平日參觀時段預約<br>
             3. 另提供 VIP CLUB 空間租借與活動辦理合作，歡迎來信洽詢需求
+          `,
+        },
+        {
+          href: '',
+          type: '學生票',
+          paper: '元/張',
+          money: '320',
+          text: `
+            ● 現場販售ONLY<br>
+            1. 年齡6歲（含）以上小學～大專院校以下學生。<br>
+            2. 滿6歲尚未註冊入學之兒童，可出示身份證明文件，限購一張。 <br>
+            3. 持本國籍大專以下有效學生證件之在學學生，以當學期註冊章為憑(網路查詢學籍證明恕不適用)。<br>
+            4. 兌換票券時，需出示身份證明文件、本人學生證正本以備查驗，每證限購一張。<br>
+            5. 碩博士、社區大學、空中大學及在職進修學生不適用。
+          `,
+        },
+        {
+          href: '',
+          type: '特惠票',
+          paper: '元/張',
+          money: '175',
+          text: `
+            ● 現場販售ONLY<br>
+            1. 65歲（含）以上年長者，須出示相關證明文件，限購一張。<br>
+            2. 4歲（含）～6歲未滿兒童，須出示相關證明文件及成人陪同，限購一張。<br>
+            3. 持本國籍身心障礙人士本人證明文件正本，必要陪同者（每證限一位）亦可購入特惠票，需同時入場。
+          `,
+        },
+        {
+          href: '',
+          type: '免票',
+          paper: '元/張',
+          money: '',
+          text: `
+            1. 未滿4歲嬰幼兒免費入場，須一位成人（年滿20歲以上）持票陪同入場。<br>
+            2. 未帶證件，但身高超過115公分孩童仍須購買學生票入場。
           `,
         },
       ],
@@ -1681,7 +1751,7 @@ export default {
     &-sub {
       position: relative;
       margin: 10px 34px 0px;
-      padding-bottom: 148px;
+      padding-bottom: 0px;
       font-size: 13px;
       line-height: 1.5;
       letter-spacing: 0.8px;
@@ -1690,8 +1760,8 @@ export default {
     }
 
     &-land {
-      position: absolute;
-      top: 300px;
+      transform: translateY(-120px);
+      margin-bottom: -120px;
       width: 100%;
     }
 
@@ -1752,28 +1822,6 @@ export default {
 
     &-row-box {
 
-      &:nth-child(3)  .index-ticket-type {
-        letter-spacing: 8px;
-        padding: 0px 0px 0px 4px;
-      }
-
-      &:nth-child(7)  .index-ticket-type {
-        letter-spacing: 8px;
-        padding: 0px 0px 0px 4px;
-      }
-
-      &:nth-child(9)  .index-ticket-type {
-        height: 45px;
-        line-height: initial;
-        padding: 10px 0px;
-      }
-
-      &:nth-child(10)  .index-ticket-type {
-        height: 45px;
-        line-height: initial;
-        padding: 10px 0px;
-      }
-
     }
 
     &-row {
@@ -1783,8 +1831,9 @@ export default {
 
     &-type {
       width: 96px;
-      height: 37px;
-      line-height: 40px;
+      height: 100%;
+      padding: 7px 0px;
+      line-height: 1.3;
       background-size: cover;
       background-position-x: center;
       background-position-y: center;
@@ -1816,7 +1865,8 @@ export default {
     // 平台
 
     &-hint {
-      margin: 38px 0px 23px;
+      margin: 38px 0px 30px;
+      line-height: 1.4;
       text-align: center;
       color: #674F4F;
       font-size: 15px;
@@ -2393,7 +2443,7 @@ export default {
     &-ticket {
 
       &-land {
-        top: 338px;
+
       }
 
       &-head-box {
