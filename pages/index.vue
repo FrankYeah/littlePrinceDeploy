@@ -363,7 +363,7 @@
             </a>
             <!-- https://www.kkday.com/zh-tw/product/123126?mId=1e6d7ee73abc45698ce9c43b30365047&cid=5109&ud1=d317c9df20c73 -->
             <!-- https://www.kkday.com/zh-tw/product/123126 -->
-            <a :href="`https://www.kkday.com/zh-tw/product/123126`" target="_blank">
+            <a :href="`https://www.kkday.com/zh-tw/product/123126?mId=3b39eb9176d7766073c44e8c5d12265f&cid=5109&ud1=7917d07a82fd9`" target="_blank">
               <img class="index-ticket-place" v-lazy="require('@/assets/img/index/outsell-kkday.png')" alt="kkday">
             </a>
                     
@@ -373,17 +373,17 @@
           </div>
           <div class="index-ticket-place-right">
             <!-- https://joymall.co/2t8n- -->
-            <!-- https://www.pchometravel.com/ticket/V921007202109250005/the-fantasy-world-of-le-petit-prince -->
+            <!-- https://cdnwww.pchometravel.com/ticket/V921007202111010001/the-fantasy-world-of-le-petit-prince-copy -->
             <!-- https://www.pchometravel.com/ticket/V921007202109250005/the-fantasy-world-of-le-petit-prince?utm_source=ichannel&gid=2f6ca468ad0ce1f5964aa474d7061dee -->
-            <a :href="`https://cdnwww.pchometravel.com/ticket/V921007202111010001/the-fantasy-world-of-le-petit-prince-copy`" target="_blank">
-              <img class="index-ticket-place" v-lazy="require('@/assets/img/index/outsell-pchome-travel.png')" alt="pchome">
+            <a :href="`https://cdnwww.pchometravel.com/ticket/V921007202111010001/the-fantasy-world-of-le-petit-prince-copy?utm_source=ichannel&gid=2e626257e0e67643c0267b05db137817`" target="_blank">
+              <img class="index-ticket-place" v-lazy="require('@/assets/img/index/outsell-pchome-travel.png')" alt="pchometravel">
             </a>
             <a href="https://24h.pchome.com.tw/store/DXAP36" target="_blank">
               <img class="index-ticket-place" v-lazy="require('@/assets/img/index/outsell-pchome.png')" alt="pchome">
             </a>
             <!-- https://affiliate.klook.com/redirect?aid=27366&aff_adid=568319&k_site=https%3A%2F%2Fwww.klook.com%2Fzh-TW%2Factivity%2F64271-exhibition-littleprince-taipei-klook%2F -->
             <!-- https://www.klook.com/zh-TW/activity/64271-exhibition-littleprince-taipei-klook/ -->
-            <a :href="`https://www.klook.com/zh-TW/activity/64271-exhibition-littleprince-taipei-klook/`" target="_blank">
+            <a :href="`http://affiliate.klook.com/redirect?aid=27366&aff_adid=571120&k_site=https%3A%2F%2Fwww.klook.com%2Fzh-TW%2Factivity%2F64271-exhibition-littleprince-taipei-klook%2F`" target="_blank">
               <img class="index-ticket-place" v-lazy="require('@/assets/img/index/outsell-klook.png')" alt="klook">
             </a>
           </div>
@@ -840,6 +840,7 @@ export default {
         { img: '1' },
         { img: '2' },
         { img: '3' },
+        { img: '4' },
       ]
     }
   },

@@ -5,9 +5,9 @@ export default {
   mode: 'universal',
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
-  router: {
-    base: '/littlePrinceTest/'
-  },
+  // router: {
+  //   base: '/littlePrinceTest/'
+  // },
   head: {
     titleTemplate: '%s',
     title: '小王子的藝想世界 75 周年特展',
