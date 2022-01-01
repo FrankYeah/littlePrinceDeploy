@@ -505,7 +505,7 @@
 
     <div @click="scrollEvent('ticketInfo')" class="index-side">
       <div class="index-side-box">
-        <div v-html="runtime" class="index-side-text">
+        <div v-html="'購票'" class="index-side-text">
           <br>
           
         </div>
@@ -2174,10 +2174,10 @@ export default {
     }
 
     &-text {
-      padding: 49px 3px 0px 0px;
+      padding: 62px 3px 0px 0px;
       line-height: 1.3;
       color: #564242;
-      font-size: 12px;
+      font-size: 16px;
       text-align: center;
     }
   }

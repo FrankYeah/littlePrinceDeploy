@@ -17,6 +17,7 @@
     "aos": "^2.3.4",
     "chokidar": "^3.4.0",
     "cross-env": "^7.0.3",
+    "fabric": "^4.6.0",
     "fibers": "^5.0.0",
     "har-validator": "^5.1.5",
     "headroom.js": "^0.12.0",
