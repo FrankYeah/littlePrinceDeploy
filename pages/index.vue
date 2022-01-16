@@ -82,7 +82,10 @@
               <img class="index-news-fb" v-lazy="require('@/assets/img/index/news-fb.png')" alt="hat">
             </a>
           </div>
-          <div class="index-news-text">「小王子的藝想世界」忠實呈現 5 大故事軸線，透過奇幻氛圍的12個劇場式展間與沈浸式互動投影，四位藝術家呂志文、張嘉穎、蔡景康及 Aura Creative Lab，伴隨展場音樂家何佳樺及重量級故事人黃子佼、林依晨獻聲引導，跟著小王子一起探索內心的尋找之旅。</div>
+          <div class="index-news-text">
+            延期更新｜展覽系統設備更新測試中，本週尚未對外開放，確切日期將會儘速於1/18（二）於FB進行正式公告；請大家再稍等我們一下！
+            <!-- 「小王子的藝想世界」忠實呈現 5 大故事軸線，透過奇幻氛圍的12個劇場式展間與沈浸式互動投影，四位藝術家呂志文、張嘉穎、蔡景康及 Aura Creative Lab，伴隨展場音樂家何佳樺及重量級故事人黃子佼、林依晨獻聲引導，跟著小王子一起探索內心的尋找之旅。 -->
+          </div>
         </div>
       </boxContent>
 
@@ -1239,7 +1242,8 @@ export default {
     &-bg {
       position: relative;
       max-width: 372px;
-      height: 278px;
+      // height: 278px;
+      height: 220px;
       width: calc(100% - 0px);
       margin: 0px 0px;
       background-size: contain;
